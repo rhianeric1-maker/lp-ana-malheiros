@@ -231,26 +231,32 @@
     .hero-photo-block {
       position: relative;
       width: 100%;
-      max-height: 75vh;
-      overflow: hidden;
       background: var(--dark2);
+      line-height: 0;
     }
     .hero-photo-block::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 45%;
+      height: 40%;
       background: linear-gradient(to bottom, transparent, var(--dark));
       z-index: 1;
+      pointer-events: none;
     }
     .hero-photo-block img {
       width: 100%;
-      height: 100%;
-      max-height: 75vh;
+      height: auto;
+      max-height: 80vh;
       object-fit: cover;
       object-position: top center;
       display: block;
       animation: fadeIn 0.8s ease-out;
+    }
+    @media (min-width: 769px) {
+      .hero-photo-block img {
+        max-height: 70vh;
+        object-fit: cover;
+      }
     }
 
     /* Bloco do texto — fundo escuro */
@@ -316,20 +322,25 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       background: var(--green);
       color: #fff;
       font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 16px 36px;
+      padding: 13px 26px;
       border-radius: 50px;
       text-decoration: none;
       transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
       box-shadow: 0 4px 20px rgba(37,211,102,0.3);
       white-space: nowrap;
+      max-width: 100%;
+    }
+    @media (max-width: 480px) {
+      .btn-wpp { font-size: 0.72rem; padding: 12px 20px; gap: 7px; }
+      .btn-wpp svg { width: 16px; height: 16px; }
     }
     .btn-wpp:hover {
       background: var(--green-dark);
@@ -988,9 +999,9 @@
     <section id="casos" class="section section-dark2">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Exemplos de casos atendidos</span>
-          <h2 class="section-title fade-up"><em>Exemplos de situações atendidas</em></h2>
-          <p class="section-desc fade-up">Todos os casos apresentados foram anonimizados para preservar a identidade e a privacidade dos clientes. Estas situações ilustram a atuação técnica em defesas reais.</p>
+          <span class="section-label">Casos vencidos</span>
+          <h2 class="section-title fade-up"><em>Casos vencidos pelo escritório</em></h2>
+          <p class="section-desc fade-up">Todos os casos foram anonimizados para preservar a identidade e privacidade dos clientes. As situações abaixo ilustram resultados reais obtidos pela defesa técnica especializada.</p>
         </div>
         <div class="cases-grid">
           <div class="case-card fade-up">
@@ -1006,7 +1017,7 @@
             <p>Cliente investigado no ambiente de trabalho com base em denúncia anônima. A defesa atuou preventivamente, apresentando provas documentais e testemunhais que afastaram a autoria antes da formalização de qualquer acusação.</p>
           </div>
         </div>
-        <p class="case-disclaimer fade-up">Os casos acima são ilustrativos e anonimizados. Resultados anteriores não garantem resultados futuros.</p>
+        <p class="case-disclaimer fade-up">Casos reais, anonimizados para preservar a privacidade dos clientes. Resultados anteriores não garantem resultados futuros.</p>
       </div>
     </section>
 
