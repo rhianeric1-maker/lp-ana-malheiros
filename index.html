@@ -638,6 +638,59 @@
     }
 
     /* ══════════════════════════════════════
+       ATENDIMENTO
+    ══════════════════════════════════════ */
+    .atend-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 48px;
+    }
+    .atend-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(200,168,75,0.1);
+    }
+    .atend-card:last-child { border-bottom: none; }
+    .atend-icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      background: rgba(200,168,75,0.1);
+      border: 1px solid rgba(200,168,75,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .atend-body h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .atend-body p {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+      line-height: 1.65;
+    }
+    .mapa-wrap {
+      max-width: 420px;
+      margin: 0 auto 16px;
+    }
+    .mapa-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0.85;
+    }
+
+    /* ══════════════════════════════════════
        BLOCO FOTO SOFÁ
     ══════════════════════════════════════ */
     .sofa-section {
@@ -1116,6 +1169,106 @@
           </div>
         </div>
         <p class="case-disclaimer fade-up">Casos reais, anonimizados para preservar a privacidade dos clientes. Resultados anteriores não garantem resultados futuros.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══ ATENDIMENTO ══ -->
+    <section id="atendimento" class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Onde atendemos</span>
+          <h2 class="section-title fade-up">Atendimento presencial e online<br><em>em todo o Brasil.</em></h2>
+        </div>
+
+        <div class="atend-grid">
+
+          <div class="atend-card fade-up">
+            <div class="atend-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="atend-body">
+              <h3>Sede Física</h3>
+              <p>Rua Dorival Machado, 135<br>Bairro Santa Mônica<br>Atendimento presencial com hora marcada.</p>
+            </div>
+          </div>
+
+          <div class="atend-card fade-up">
+            <div class="atend-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="atend-body">
+              <h3>Atendimento Online</h3>
+              <p>Atendemos clientes em todo o território nacional de forma digital. Consulta, defesa e acompanhamento processual sem sair de casa.</p>
+            </div>
+          </div>
+
+          <div class="atend-card fade-up">
+            <div class="atend-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="atend-body">
+              <h3>Sigilo Total</h3>
+              <p>Todo atendimento é confidencial desde o primeiro contato. Nenhuma informação é compartilhada sem sua autorização.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mapa SVG do Brasil -->
+        <div class="mapa-wrap fade-up">
+          <svg viewBox="0 0 600 580" class="mapa-svg" xmlns="http://www.w3.org/2000/svg">
+            <!-- Fundo do mapa simplificado -->
+            <g fill="#1e1e24" stroke="#c8a84b" stroke-width="0.8" opacity="0.7">
+              <!-- Contorno simplificado do Brasil -->
+              <path d="M180,60 L220,45 L270,40 L320,42 L370,50 L410,65 L440,85 L460,110 L470,140 L475,170 L478,200 L480,230 L482,260 L478,290 L470,320 L455,345 L440,365 L420,385 L400,400 L375,415 L350,425 L325,435 L300,445 L275,450 L250,448 L225,440 L200,428 L178,412 L160,392 L145,370 L135,345 L128,318 L125,290 L122,262 L120,234 L118,206 L120,178 L125,150 L133,124 L145,100 L160,78 Z"/>
+            </g>
+            <!-- Pins dourados nas cidades -->
+            <g fill="#c8a84b">
+              <!-- MG -->
+              <circle cx="310" cy="290" r="7"/>
+              <line x1="310" y1="283" x2="310" y2="265" stroke="#c8a84b" stroke-width="1.5"/>
+              <!-- SP -->
+              <circle cx="280" cy="330" r="7"/>
+              <line x1="280" y1="323" x2="280" y2="305" stroke="#c8a84b" stroke-width="1.5"/>
+              <!-- RJ -->
+              <circle cx="340" cy="335" r="6"/>
+              <!-- GO -->
+              <circle cx="268" cy="248" r="6"/>
+              <!-- BA -->
+              <circle cx="370" cy="240" r="6"/>
+              <!-- PE -->
+              <circle cx="420" cy="185" r="6"/>
+              <!-- CE -->
+              <circle cx="400" cy="155" r="6"/>
+              <!-- PA -->
+              <circle cx="270" cy="130" r="6"/>
+              <!-- MT -->
+              <circle cx="210" cy="230" r="6"/>
+              <!-- MS -->
+              <circle cx="230" cy="310" r="6"/>
+              <!-- PR -->
+              <circle cx="255" cy="365" r="6"/>
+              <!-- SC -->
+              <circle cx="260" cy="395" r="6"/>
+              <!-- RS -->
+              <circle cx="245" cy="430" r="6"/>
+              <!-- DF -->
+              <circle cx="295" cy="255" r="6"/>
+            </g>
+            <!-- Label principal -->
+            <text x="300" y="510" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="13" fill="#c8a84b" letter-spacing="3" font-weight="700">ATENDIMENTO NACIONAL</text>
+          </svg>
+        </div>
+
+        <div style="text-align:center; margin-top: 36px;">
+          <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="btn-wpp fade-up">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar atendimento
+          </a>
+        </div>
+
       </div>
     </section>
 
