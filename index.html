@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ana Malheiros | Falsa Acusação - Defesa Criminal Especializada</title>
+  <meta name="description" content="Defesa especializada em crimes sexuais, acusações injustas e violência doméstica. Atendimento reservado, técnico e estratégico." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    :root {
+      --black:      #0a0a0b;
+      --dark:       #111114;
+      --dark-2:     #16161a;
+      --dark-3:     #1e1e24;
+      --border:     rgba(180,150,80,0.18);
+      --gold:       #c8a84b;
+      --gold-light: #e2c97e;
+      --gold-dim:   #8a6e2e;
+      --white:      #f5f2ec;
+      --gray:       #9a9aa8;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', 'Segoe UI', Arial, sans-serif;
+      --max-w: 1160px;
+      --section-pad: 100px 24px;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      font-size: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+    /* =========================================================
+       ANIMATIONS
+    ========================================================= */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fab-pulse {
+      0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.35); transform: scale(1); }
+      50%       { box-shadow: 0 6px 40px rgba(37,211,102,0.6);  transform: scale(1.05); }
+    }
+
+    /* =========================================================
+       UTILITIES
+    ========================================================= */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+    }
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 18px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+      animation: fadeInUp 0.9s ease-out 0.1s backwards;
+    }
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--gray);
+      max-width: 660px;
+      line-height: 1.85;
+      margin-bottom: 56px;
+      animation: fadeInUp 1s ease-out 0.2s backwards;
+    }
+    .gold-line {
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 20px 0 0;
+    }
+    .divider-gold {
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      opacity: 0.6;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.92rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(200,168,75,0.35);
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,11,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    header.scrolled {
+      background: rgba(10,10,11,0.98);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    }
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-img {
+      height: 44px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(200,168,75,0.3));
+      transition: filter 0.3s ease;
+    }
+    .nav-logo:hover .nav-logo-img {
+      filter: drop-shadow(0 0 10px rgba(200,168,75,0.6));
+    }
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+    .nav-logo-text em {
+      color: var(--gray);
+      font-weight: 400;
+      font-size: 0.72rem;
+      display: block;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-style: normal;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(200,168,75,0.08); }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--black) !important;
+      font-weight: 700 !important;
+      padding: 9px 20px !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s ease; border-radius: 2px; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: rgba(10,10,11,0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border);
+        gap: 4px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 16px; width: 100%; }
+      .nav-cta { margin: 8px 16px; border-radius: 4px; }
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 24px 60px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 70% 40%, rgba(200,168,75,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(200,168,75,0.04) 0%, transparent 60%),
+        linear-gradient(160deg, #0a0a0b 0%, #111114 50%, #0d0d10 100%);
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.25;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-content { }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(200,168,75,0.1);
+      border: 1.5px solid var(--border);
+      padding: 9px 18px;
+      border-radius: 4px;
+      margin-bottom: 32px;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.18;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: -0.5px;
+      animation: fadeInUp 0.9s ease-out 0.1s backwards;
+    }
+    .hero-headline em { color: var(--gold-light); font-style: normal; }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      animation: fadeInUp 1s ease-out 0.2s backwards;
+    }
+    .hero-complement {
+      font-size: 0.95rem;
+      color: var(--gold-dim);
+      margin-bottom: 40px;
+      font-style: italic;
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      animation: fadeInUp 1.1s ease-out 0.4s backwards;
+    }
+    .hero-trust {
+      font-size: 0.8rem;
+      color: var(--gray);
+      letter-spacing: 0.06em;
+    }
+
+    /* Imagem Hero com fade */
+    .hero-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 600px;
+      animation: fadeIn 1.2s ease-out 0.5s backwards;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      height: 60%;
+      background: radial-gradient(ellipse 90% 70% at 50% 100%, rgba(200,168,75,0.2) 0%, transparent 70%);
+      filter: blur(40px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--black) 0%, rgba(10,10,11,0.6) 50%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-photo-wrap img {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 10px 50px rgba(200,168,75,0.12));
+    }
+
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-photo-wrap { height: 420px; }
+    }
+    @media (max-width: 600px) {
+      .hero-photo-wrap { height: 320px; }
+    }
+
+    /* =========================================================
+       ALERT
+    ========================================================= */
+    #alerta {
+      padding: var(--section-pad);
+      background: var(--dark);
+    }
+    .alert-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      max-width: 760px;
+      line-height: 1.3;
+    }
+    .alert-text {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+    .alert-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .alert-card {
+      background: rgba(139,32,32,0.08);
+      border: 1.5px solid rgba(139,32,32,0.25);
+      border-radius: 8px;
+      padding: 28px 24px;
+      transition: all 0.3s ease;
+    }
+    .alert-card:hover {
+      background: rgba(139,32,32,0.14);
+      border-color: rgba(139,32,32,0.45);
+      transform: translateY(-4px);
+    }
+    .alert-card-icon {
+      font-size: 1.2rem;
+      color: #c0392b;
+      margin-bottom: 14px;
+    }
+    .alert-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* =========================================================
+       PARA QUEM
+    ========================================================= */
+    #para-quem {
+      padding: var(--section-pad);
+      background: var(--dark-2);
+    }
+    .numbered-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .numbered-card {
+      background: var(--dark-3);
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .numbered-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .numbered-card:hover { background: rgba(200,168,75,0.04); transform: translateY(-2px); }
+    .numbered-card:hover::before { opacity: 1; }
+    .card-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold-dim);
+      display: block;
+      margin-bottom: 16px;
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+    .numbered-card:hover .card-num { color: var(--gold); }
+    .numbered-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .numbered-card p { color: var(--gray); font-size: 0.93rem; line-height: 1.75; }
+
+    /* =========================================================
+       DIREITOS — layout 2 colunas com foto
+    ========================================================= */
+    #direitos {
+      padding: var(--section-pad);
+      background: var(--dark-2);
+      position: relative;
+    }
+    #direitos::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 50%;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(200,168,75,0.04), transparent);
+      pointer-events: none;
+    }
+    .direitos-layout {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 80px;
+      align-items: center;
+    }
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 32px;
+    }
+    .right-item {
+      background: var(--dark-3);
+      padding: 28px 24px;
+      transition: all 0.3s ease;
+    }
+    .right-item:hover { background: rgba(200,168,75,0.04); }
+    .right-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(200,168,75,0.1);
+      border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .right-item h3 {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .right-item p { color: var(--gray); font-size: 0.88rem; line-height: 1.7; }
+
+    /* Foto direitos com fade */
+    .direitos-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 580px;
+    }
+    .direitos-photo-wrap::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      height: 60%;
+      background: radial-gradient(ellipse 90% 70% at 50% 100%, rgba(200,168,75,0.18) 0%, transparent 70%);
+      filter: blur(40px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .direitos-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--dark-2) 0%, rgba(22,22,26,0.5) 60%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .direitos-photo-wrap img {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 10px 50px rgba(200,168,75,0.1));
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+
+    @media (max-width: 1100px) {
+      .direitos-layout { grid-template-columns: 1fr; gap: 48px; }
+      .direitos-photo-wrap { height: 400px; }
+    }
+
+    /* =========================================================
+       ATUAÇÃO — layout 2 colunas com foto
+    ========================================================= */
+    #atuacao {
+      padding: var(--section-pad);
+      background: var(--dark);
+    }
+    .atuacao-layout {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 48px;
+    }
+
+    /* Foto atuação com fade */
+    .atuacao-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 580px;
+    }
+    .atuacao-photo-wrap::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      height: 60%;
+      background: radial-gradient(ellipse 90% 70% at 50% 100%, rgba(200,168,75,0.18) 0%, transparent 70%);
+      filter: blur(40px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .atuacao-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--dark) 0%, rgba(17,17,20,0.5) 60%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+    .atuacao-photo-wrap img {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 10px 50px rgba(200,168,75,0.1));
+      animation: fadeInUp 1s ease-out 0.3s backwards;
+    }
+
+    .help-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .help-card {
+      background: var(--dark-3);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 22px 24px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .help-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      transform: scaleY(0);
+      transition: transform 0.3s ease;
+      transform-origin: bottom;
+    }
+    .help-card:hover { background: rgba(200,168,75,0.04); border-color: rgba(200,168,75,0.3); transform: translateX(4px); }
+    .help-card:hover::before { transform: scaleY(1); }
+    .help-card-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .help-card h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .help-card p { color: var(--gray); font-size: 0.88rem; line-height: 1.7; }
+
+    @media (max-width: 1100px) {
+      .atuacao-layout { grid-template-columns: 1fr; gap: 48px; }
+      .atuacao-photo-wrap { height: 400px; order: -1; }
+    }
+
+    /* =========================================================
+       CASOS
+    ========================================================= */
+    #casos {
+      padding: var(--section-pad);
+      background: var(--dark-2);
+    }
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .case-card {
+      background: var(--dark-3);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 32px 28px;
+      transition: all 0.35s ease;
+    }
+    .case-card:hover {
+      border-color: rgba(200,168,75,0.35);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+    }
+    .case-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      background: rgba(200,168,75,0.1);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 3px;
+      margin-bottom: 18px;
+    }
+    .case-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .case-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.75; }
+
+    /* =========================================================
+       CTA FINAL
+    ========================================================= */
+    #contato {
+      padding: var(--section-pad);
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    #contato::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(200,168,75,0.06), transparent);
+      pointer-events: none;
+    }
+    .cta-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 24px;
+      letter-spacing: -0.4px;
+    }
+    .cta-text { color: var(--gray); font-size: 1rem; line-height: 1.8; margin-bottom: 40px; }
+    .cta-trust { font-size: 0.8rem; color: var(--gray); margin-top: 20px; letter-spacing: 0.06em; }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    footer {
+      padding: 40px 24px;
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .footer-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .footer-oab { font-size: 0.8rem; color: var(--gray); margin-bottom: 20px; }
+    .footer-disclaimer {
+      font-size: 0.75rem;
+      color: var(--gray);
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.7;
+    }
+
+    /* =========================================================
+       WHATSAPP FAB
+    ========================================================= */
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 32px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50%;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.4);
+      animation: fab-pulse 2.8s ease-in-out infinite;
+      transition: all 0.3s ease;
+    }
+    .whatsapp-fab:hover {
+      transform: scale(1.12) translateY(-3px);
+      box-shadow: 0 12px 45px rgba(37,211,102,0.55);
+      animation: none;
+      background: #20ba5a;
+    }
+    .whatsapp-fab svg { width: 32px; height: 32px; }
+    @media (max-width: 600px) {
+      .whatsapp-fab { width: 54px; height: 54px; bottom: 24px; right: 20px; }
+      .whatsapp-fab svg { width: 28px; height: 28px; }
+    }
+
+    /* =========================================================
+       RESPONSIVE GLOBAL
+    ========================================================= */
+    @media (max-width: 768px) {
+      :root { --section-pad: 80px 24px; }
+      .section-title { font-size: clamp(1.7rem, 3.5vw, 2.2rem); }
+      .hero-headline { font-size: clamp(1.8rem, 5vw, 3rem); }
+      .btn-primary { padding: 14px 28px; font-size: 0.88rem; }
+      .rights-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="site-header">
+    <nav>
+      <a href="#hero" class="nav-logo">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/iAEefeVETAiZRQPo.png" alt="Ana Malheiros Advocacia" class="nav-logo-img">
+        <span class="nav-logo-text">Ana Malheiros<em>Falsa Acusação</em></span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#alerta">Defesa</a></li>
+        <li><a href="#direitos">Direitos</a></li>
+        <li><a href="#atuacao">Atuação</a></li>
+        <li><a href="#casos">Casos</a></li>
+        <li><a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="nav-cta">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-inner">
+
+        <div class="hero-content">
+          <div class="hero-badge">Defesa Criminal Especializada</div>
+          <h1 class="hero-headline">
+            Acusado de crime sexual<br>ou violência doméstica?<br>
+            <em>Um erro na sua defesa pode destruir sua vida.</em>
+          </h1>
+          <p class="hero-sub">
+            Sua liberdade, sua reputação e sua família estão em risco. Acusações, mesmo falsas, podem gerar prisão, afastamento do lar e danos irreversíveis.
+          </p>
+          <p class="hero-complement">Sua defesa precisa começar antes que o problema se torne irreversível.</p>
+          <div class="hero-actions">
+            <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Falar com especialista agora
+            </a>
+            <span class="hero-trust">Atendimento reservado, técnico e estratégico desde o primeiro contato.</span>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <img
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/sYymTWBDaxyHfRlU.png"
+            alt="Ana Malheiros - Advogada Especializada em Falsa Acusação"
+            loading="lazy"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider-gold"></div>
+
+    <!-- ===================== ALERT ===================== -->
+    <section id="alerta">
+      <div class="container">
+        <span class="section-label">Atenção</span>
+        <h2 class="alert-headline">Não agir imediatamente pode ser o maior erro da sua defesa.</h2>
+        <p class="alert-text">
+          Cada depoimento, conversa, print, medida protetiva ou decisão precipitada pode ser usado contra você. Em casos sensíveis, a estratégia precisa começar antes do problema crescer.
+        </p>
+        <div class="alert-cards">
+          <div class="alert-card">
+            <div class="alert-card-icon">&#9632;</div>
+            <h3>Risco de prisão ou medidas urgentes</h3>
+          </div>
+          <div class="alert-card">
+            <div class="alert-card-icon">&#9632;</div>
+            <h3>Exposição pública e danos à reputação</h3>
+          </div>
+          <div class="alert-card">
+            <div class="alert-card-icon">&#9632;</div>
+            <h3>Afastamento do lar e restrições familiares</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-gold"></div>
+
+    <!-- ===================== PARA QUEM ===================== -->
+    <section id="para-quem">
+      <div class="container">
+        <span class="section-label">Para Quem</span>
+        <h2 class="section-title">Para quem é essa defesa</h2>
+        <p class="section-lead">Atuamos em casos sensíveis, complexos e urgentes, especialmente quando há risco à liberdade, à imagem e à vida familiar do acusado.</p>
+        <div class="numbered-grid">
+          <div class="numbered-card">
+            <span class="card-num">01</span>
+            <h3>Está sendo investigado ou foi acusado de crime que não cometeu</h3>
+            <p>Quando a versão apresentada não condiz com a realidade e você precisa agir com técnica para se proteger.</p>
+          </div>
+          <div class="numbered-card">
+            <span class="card-num">02</span>
+            <h3>Foi denunciado com base apenas em palavra ou versão distorcida</h3>
+            <p>Situação comum em acusações de crimes sexuais, conflitos familiares e casos envolvendo Lei Maria da Penha.</p>
+          </div>
+          <div class="numbered-card">
+            <span class="card-num">03</span>
+            <h3>Corre risco de prisão, medida protetiva ou afastamento do lar</h3>
+            <p>Atuamos de forma urgente para avaliar medidas cabíveis, preservar direitos e evitar decisões desproporcionais.</p>
+          </div>
+          <div class="numbered-card">
+            <span class="card-num">04</span>
+            <h3>Precisa de orientação antes de depor ou entregar provas</h3>
+            <p>Um depoimento mal conduzido pode comprometer toda a estratégia defensiva.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-gold"></div>
+
+    <!-- ===================== DIREITOS ===================== -->
+    <section id="direitos">
+      <div class="container">
+        <div class="direitos-layout">
+
+          <div>
+            <span class="section-label">Direitos</span>
+            <h2 class="section-title">Mesmo acusado, você tem direitos. E eles precisam ser usados com estratégia.</h2>
+            <div class="rights-grid">
+              <div class="right-item">
+                <div class="right-icon">1</div>
+                <h3>Presunção de inocência</h3>
+                <p>Ninguém pode ser tratado como culpado antes de uma condenação definitiva.</p>
+              </div>
+              <div class="right-item">
+                <div class="right-icon">2</div>
+                <h3>Direito ao silêncio</h3>
+                <p>Você não é obrigado a produzir prova contra si mesmo. A orientação antes de qualquer depoimento é essencial.</p>
+              </div>
+              <div class="right-item">
+                <div class="right-icon">3</div>
+                <h3>Contraditório e ampla defesa</h3>
+                <p>Toda acusação pode e deve ser tecnicamente confrontada com provas, perícias e argumentos jurídicos.</p>
+              </div>
+              <div class="right-item">
+                <div class="right-icon">4</div>
+                <h3>Revisão de medidas protetivas</h3>
+                <p>Medidas podem ser analisadas e contestadas quando forem abusivas ou desproporcionais.</p>
+              </div>
+              <div class="right-item" style="grid-column: 1 / -1;">
+                <div class="right-icon">5</div>
+                <h3>Acesso integral às provas</h3>
+                <p>A defesa precisa conhecer os elementos da investigação para construir uma estratégia real.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="direitos-photo-wrap">
+            <img
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/tflzJljLuUbelqqh.png"
+              alt="Ana Malheiros - Consultoria Jurídica"
+              loading="lazy"
+            >
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-gold"></div>
+
+    <!-- ===================== ATUAÇÃO ===================== -->
+    <section id="atuacao">
+      <div class="container">
+        <span class="section-label">Atuação</span>
+        <h2 class="section-title">Atuação técnica desde o primeiro momento. Não depois que o problema piorar.</h2>
+        <div class="atuacao-layout">
+
+          <div class="atuacao-photo-wrap">
+            <img
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/XoCCDATDMqCLahNr.png"
+              alt="Ana Malheiros - Defesa Criminal"
+              loading="lazy"
+            >
+          </div>
+
+          <div class="help-cards">
+            <div class="help-card">
+              <span class="help-card-label">Estratégia 1</span>
+              <h3>Diagnóstico reservado e estratégico</h3>
+              <p>Você relata o caso. Nós analisamos com técnica, sigilo e foco na proteção dos seus direitos.</p>
+            </div>
+            <div class="help-card">
+              <span class="help-card-label">Estratégia 2</span>
+              <h3>Desconstrução da acusação</h3>
+              <p>Identificação de contradições, ausência de provas, fragilidades da narrativa e pontos que podem mudar o rumo do caso.</p>
+            </div>
+            <div class="help-card">
+              <span class="help-card-label">Estratégia 3</span>
+              <h3>Defesa ativa e imediata</h3>
+              <p>Atuação em inquérito, pedidos urgentes, habeas corpus, revogação de medidas protetivas e produção de contraprovas.</p>
+            </div>
+            <div class="help-card">
+              <span class="help-card-label">Estratégia 4</span>
+              <h3>Defesa em violência doméstica</h3>
+              <p>Atuação em casos envolvendo Lei Maria da Penha, medidas protetivas, afastamento do lar e acusações em contexto familiar.</p>
+            </div>
+            <div class="help-card">
+              <span class="help-card-label">Estratégia 5</span>
+              <h3>Proteção da imagem</h3>
+              <p>Estratégia para reduzir exposição indevida, preservar reputação e evitar danos pessoais e profissionais.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-gold"></div>
+
+    <!-- ===================== CASOS ===================== -->
+    <section id="casos">
+      <div class="container">
+        <span class="section-label">Casos</span>
+        <h2 class="section-title">Exemplos de situações atendidas</h2>
+        <p class="section-lead">Os exemplos abaixo são ilustrativos e anonimizados. Cada caso depende de análise individual e não representa promessa de resultado.</p>
+        <div class="cases-grid">
+          <div class="case-card">
+            <span class="case-tag">Investigação</span>
+            <h3>Investigação arquivada após análise técnica</h3>
+            <p>A defesa demonstrou inconsistências na narrativa acusatória e ausência de elementos mínimos para continuidade da investigação.</p>
+          </div>
+          <div class="case-card">
+            <span class="case-tag">Medida Protetiva</span>
+            <h3>Medida protetiva reavaliada</h3>
+            <p>Após atuação técnica, foram apontadas contradições e ausência de risco atual, permitindo a reavaliação das restrições impostas.</p>
+          </div>
+          <div class="case-card">
+            <span class="case-tag">Prisão</span>
+            <h3>Pedido de prisão contestado</h3>
+            <p>A defesa atuou de forma urgente para demonstrar fragilidade da acusação, ausência de risco processual e necessidade de preservação da liberdade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-gold"></div>
+
+    <!-- ===================== CTA FINAL ===================== -->
+    <section id="contato">
+      <div class="cta-inner">
+        <h2 class="cta-title">Você pode esperar e correr o risco de perder tudo. Ou agir agora e se defender da forma certa.</h2>
+        <p class="cta-text">A diferença entre essas duas decisões pode definir o rumo da sua vida, da sua liberdade e da sua reputação.</p>
+        <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com especialista agora
+        </a>
+        <p class="cta-trust">Atendimento jurídico reservado e estratégico.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="footer-logo-wrap">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/iAEefeVETAiZRQPo.png" alt="Ana Malheiros Advocacia" style="height:64px;width:auto;filter:drop-shadow(0 0 8px rgba(200,168,75,0.4));margin-bottom:12px;">
+      <div class="footer-logo">Ana Malheiros</div>
+    </div>
+    <div class="footer-oab">Advogada Criminalista</div>
+    <p class="footer-disclaimer">
+      As informações desta página são de caráter informativo e não substituem uma consulta jurídica individualizada. Resultados anteriores não garantem resultados futuros.
+    </p>
+  </footer>
+
+  <!-- ===================== WHATSAPP FAB ===================== -->
+  <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="whatsapp-fab" title="Falar com Ana Malheiros no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    // Smooth scroll com compensação do header fixo
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        e.preventDefault();
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+        const headerHeight = header.offsetHeight;
+        const targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+      });
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(
+      '.alert-card, .numbered-card, .right-item, .help-card, .case-card'
+    ).forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s`;
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
