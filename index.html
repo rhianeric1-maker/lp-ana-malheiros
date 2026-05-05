@@ -553,53 +553,55 @@
     }
     .right-item p { color: var(--gray); font-size: 0.88rem; line-height: 1.7; }
 
-    /* Foto direitos com fade */
+    /* =========================================================
+       FOTOS COM TRANSIÇÃO CLIP-PATH
+    ========================================================= */
+
+    /* Container compartilhado para as duas fotos */
+    .photo-transition-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      background: transparent;
+    }
+
+    /* Foto Direitos — entra de cima para baixo */
     .direitos-photo-wrap {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      height: 580px;
+      overflow: hidden;
+      border-radius: 12px;
+      height: 520px;
     }
-    .direitos-photo-wrap::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      height: 60%;
-      background: radial-gradient(ellipse 90% 70% at 50% 100%, rgba(200,168,75,0.18) 0%, transparent 70%);
-      filter: blur(40px);
-      z-index: 0;
-      pointer-events: none;
+    .direitos-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      clip-path: inset(100% 0 0 0);
+      transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: drop-shadow(0 8px 30px rgba(200,168,75,0.08));
     }
+    .direitos-photo-wrap.in-view img {
+      clip-path: inset(0% 0 0 0);
+    }
+    /* borda dourada sutil */
     .direitos-photo-wrap::after {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 40%;
-      background: linear-gradient(to top, var(--dark-2) 0%, rgba(22,22,26,0.5) 60%, transparent 100%);
-      z-index: 2;
+      inset: 0;
+      border-radius: 12px;
+      border: 1px solid rgba(200,168,75,0.18);
       pointer-events: none;
-    }
-    .direitos-photo-wrap img {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      object-position: bottom center;
-      filter: drop-shadow(0 10px 50px rgba(200,168,75,0.1));
-      animation: fadeInUp 1s ease-out 0.3s backwards;
+      z-index: 2;
     }
 
     @media (max-width: 1100px) {
       .direitos-layout { grid-template-columns: 1fr; gap: 48px; }
-      .direitos-photo-wrap { height: 400px; }
+      .direitos-photo-wrap { height: 360px; }
+    }
+    @media (max-width: 600px) {
+      .direitos-photo-wrap { height: 280px; }
     }
 
     /* =========================================================
@@ -617,48 +619,43 @@
       margin-top: 48px;
     }
 
-    /* Foto atuação com fade */
+    /* Foto Atuação — entra de baixo para cima */
     .atuacao-photo-wrap {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      height: 580px;
+      overflow: hidden;
+      border-radius: 12px;
+      height: 520px;
     }
-    .atuacao-photo-wrap::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      height: 60%;
-      background: radial-gradient(ellipse 90% 70% at 50% 100%, rgba(200,168,75,0.18) 0%, transparent 70%);
-      filter: blur(40px);
-      z-index: 0;
-      pointer-events: none;
+    .atuacao-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: drop-shadow(0 8px 30px rgba(200,168,75,0.08));
     }
+    .atuacao-photo-wrap.in-view img {
+      clip-path: inset(0% 0 0% 0);
+    }
+    /* borda dourada sutil */
     .atuacao-photo-wrap::after {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 40%;
-      background: linear-gradient(to top, var(--dark) 0%, rgba(17,17,20,0.5) 60%, transparent 100%);
-      z-index: 2;
+      inset: 0;
+      border-radius: 12px;
+      border: 1px solid rgba(200,168,75,0.18);
       pointer-events: none;
+      z-index: 2;
     }
-    .atuacao-photo-wrap img {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      object-position: bottom center;
-      filter: drop-shadow(0 10px 50px rgba(200,168,75,0.1));
-      animation: fadeInUp 1s ease-out 0.3s backwards;
+
+    @media (max-width: 1100px) {
+      .atuacao-layout { grid-template-columns: 1fr; gap: 48px; }
+      .atuacao-photo-wrap { height: 360px; order: -1; }
+    }
+    @media (max-width: 600px) {
+      .atuacao-photo-wrap { height: 280px; }
     }
 
     .help-cards {
@@ -1181,7 +1178,7 @@
       });
     });
 
-    // Fade-in on scroll
+    // Fade-in on scroll para cards
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1199,6 +1196,20 @@
       el.style.transform = 'translateY(28px)';
       el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s`;
       observer.observe(el);
+    });
+
+    // Animação clip-path nas fotos: cima→baixo (direitos) e baixo→cima (atuação)
+    const photoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          photoObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.direitos-photo-wrap, .atuacao-photo-wrap').forEach(el => {
+      photoObserver.observe(el);
     });
   </script>
 
