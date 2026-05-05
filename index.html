@@ -1,197 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ana Malheiros | Falsa Acusação - Defesa Criminal Especializada</title>
-  <meta name="description" content="Defesa especializada em crimes sexuais, acusações injustas e violência doméstica. Atendimento reservado, técnico e estratégico." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana Malheiros — Falsa Acusação</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
 
     :root {
       --black:      #0a0a0b;
       --dark:       #111114;
-      --dark-2:     #16161a;
-      --dark-3:     #1e1e24;
-      --border:     rgba(180,150,80,0.18);
+      --dark2:      #18181c;
       --gold:       #c8a84b;
       --gold-light: #e2c97e;
-      --gold-dim:   #8a6e2e;
-      --white:      #f5f2ec;
-      --gray:       #9a9aa8;
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body:    'Lato', 'Segoe UI', Arial, sans-serif;
-      --font-ui:      'Montserrat', 'Segoe UI', Arial, sans-serif;
-      --max-w: 1160px;
-      --section-pad: 100px 24px;
+      --gold-dim:   rgba(200,168,75,0.35);
+      --white:      #f5f0e8;
+      --gray:       #9a9a9a;
+      --gray-light: #c0b9aa;
+      --green:      #25D366;
+      --green-dark: #1da851;
+      --max-w:      1100px;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
+      font-family: 'Montserrat', sans-serif;
       background: var(--black);
       color: var(--white);
-      font-family: var(--font-body);
-      line-height: 1.7;
-      overflow-x: hidden;
-      font-size: 17px;
-      letter-spacing: 0.2px;
-      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Montserrat para elementos de UI: botões, nav, labels, badges */
-    .btn-primary,
-    .nav-links a,
-    .nav-cta,
-    .hero-badge,
-    .section-label,
-    .help-card-label,
-    .card-num,
-    .alert-card h3,
-    .footer-oab {
-      font-family: var(--font-ui);
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+    /* ── UTILITÁRIOS ── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
-    /* Cormorant Garamond itálico dourado para subtítulos de destaque */
-    .hero-headline strong {
-      font-family: var(--font-display);
-      font-style: italic;
-      color: var(--gold-light);
-      font-weight: 600;
+    .section-label {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
     }
 
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--dark); }
-    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+      margin: 0;
+    }
 
-    /* =========================================================
-       ANIMATIONS
-    ========================================================= */
+    /* ── ANIMAÇÕES ── */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-40px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes fab-pulse {
-      0%, 100% { box-shadow: 0 6px 28px rgba(37,211,102,0.35); transform: scale(1); }
-      50%       { box-shadow: 0 6px 40px rgba(37,211,102,0.6);  transform: scale(1.05); }
+    @keyframes pulse-green {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
+      50%       { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
     }
 
-    /* =========================================================
-       UTILITIES
-    ========================================================= */
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      width: 100%;
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .section-label {
-      display: inline-block;
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 18px;
-      animation: fadeInUp 0.8s ease-out;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.18;
-      margin-bottom: 16px;
-      letter-spacing: -0.3px;
-      animation: fadeInUp 0.9s ease-out 0.1s backwards;
-    }
-    .section-lead {
-      font-size: 1.05rem;
-      color: var(--gray);
-      max-width: 660px;
-      line-height: 1.85;
-      margin-bottom: 56px;
-      animation: fadeInUp 1s ease-out 0.2s backwards;
-    }
-    .gold-line {
-      display: block;
-      width: 48px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      margin: 20px 0 0;
-    }
-    .divider-gold {
-      height: 1.5px;
-      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-      opacity: 0.6;
-    }
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #25D366;
-      color: #fff;
-      font-family: var(--font-ui);
-      font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 13px 28px;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.28);
-    }
-    .btn-primary svg { flex-shrink: 0; }
-    .btn-primary:hover {
-      background: #20ba5a;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(37,211,102,0.45);
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    /* =========================================================
+    /* ══════════════════════════════════════
        HEADER
-    ========================================================= */
-    /* HEADER */
+    ══════════════════════════════════════ */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(10,10,11,0.95);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      background: rgba(10,10,11,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(200,168,75,0.15);
+      transition: background 0.3s, box-shadow 0.3s;
     }
     header.scrolled {
       background: rgba(10,10,11,0.99);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.6);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.6);
     }
     nav {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 0 28px;
-      height: 80px;
+      padding: 0 24px;
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
     }
-    /* LOGO: imagem + texto lado a lado, verticalmente centrado */
     .nav-logo {
       display: flex;
       align-items: center;
@@ -200,929 +120,613 @@
       flex-shrink: 0;
     }
     .nav-logo-img {
-      height: 52px;
+      height: 48px;
       width: auto;
       display: block;
-      flex-shrink: 0;
-      filter: drop-shadow(0 0 8px rgba(200,168,75,0.4));
-      transition: filter 0.3s ease;
+      filter: drop-shadow(0 0 8px rgba(200,168,75,0.35));
+      transition: filter 0.3s;
     }
     .nav-logo:hover .nav-logo-img {
-      filter: drop-shadow(0 0 14px rgba(200,168,75,0.7));
+      filter: drop-shadow(0 0 14px rgba(200,168,75,0.65));
     }
     .nav-logo-text {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 2px;
+      gap: 3px;
     }
     .nav-logo-text strong {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--gold-light);
       letter-spacing: 0.04em;
       line-height: 1;
-      display: block;
     }
     .nav-logo-text span {
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      font-weight: 500;
+      font-size: 0.62rem;
+      font-weight: 600;
       color: var(--gray);
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      display: block;
       line-height: 1;
     }
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       list-style: none;
     }
     .nav-links a {
-      color: var(--gray);
-      text-decoration: none;
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-weight: 500;
-      padding: 8px 14px;
+      color: var(--gray-light);
+      text-decoration: none;
+      padding: 8px 12px;
       border-radius: 4px;
-      transition: all 0.3s ease;
+      transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--white); background: rgba(200,168,75,0.08); }
+    .nav-links a:hover { color: var(--gold-light); }
     .nav-cta {
-      background: linear-gradient(135deg, #c8a84b, #e2c97e, #c8a84b) !important;
-      color: #111 !important;
-      font-family: var(--font-ui) !important;
-      font-weight: 700 !important;
-      font-size: 0.75rem !important;
-      letter-spacing: 0.1em !important;
-      text-transform: uppercase !important;
-      padding: 9px 22px !important;
+      background: var(--green) !important;
+      color: #fff !important;
       border-radius: 50px !important;
-      box-shadow: 0 2px 14px rgba(200,168,75,0.3);
+      padding: 9px 20px !important;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.2s !important;
     }
-    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(200,168,75,0.45) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s ease; border-radius: 2px; }
-    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-cta:hover {
+      background: var(--green-dark) !important;
+      transform: translateY(-1px) !important;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
     @media (max-width: 768px) {
       .hamburger { display: flex; }
       .nav-links {
         display: none;
-        position: absolute;
+        position: fixed;
         top: 72px; left: 0; right: 0;
         background: rgba(10,10,11,0.98);
-        backdrop-filter: blur(20px);
+        backdrop-filter: blur(16px);
         flex-direction: column;
-        padding: 20px 24px;
-        border-bottom: 1px solid var(--border);
+        padding: 24px;
         gap: 4px;
+        border-bottom: 1px solid var(--gold-dim);
       }
       .nav-links.open { display: flex; }
-      .nav-links a { padding: 12px 16px; width: 100%; }
-      .nav-cta { margin: 8px 16px; border-radius: 4px; }
+      .nav-links a { padding: 14px 16px; font-size: 0.8rem; }
+      .nav-cta { margin: 8px 16px; text-align: center; }
     }
 
-    /* =========================================================
-       HERO
-    ========================================================= */
+    /* ══════════════════════════════════════
+       HERO — foto em cima, texto embaixo
+    ══════════════════════════════════════ */
     #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 100px 24px 0;
-      background: linear-gradient(160deg, #0a0a0b 0%, #0f0f12 100%);
+      padding-top: 72px;
+      background: var(--dark);
     }
-    .hero-inner {
+
+    /* Bloco da foto — ocupa toda a largura */
+    .hero-photo-block {
       position: relative;
-      z-index: 1;
-      max-width: var(--max-w);
-      margin: 0 auto;
       width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 480px;
-      gap: 0;
-      align-items: flex-end;
-      min-height: calc(100vh - 100px);
+      max-height: 75vh;
+      overflow: hidden;
+      background: var(--dark2);
     }
-    .hero-content {
-      padding: 60px 48px 80px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .hero-photo-block::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 45%;
+      background: linear-gradient(to bottom, transparent, var(--dark));
+      z-index: 1;
     }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(200,168,75,0.08);
-      border: 1px solid rgba(200,168,75,0.25);
-      padding: 7px 14px;
-      border-radius: 3px;
-      margin-bottom: 28px;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
+    .hero-photo-block img {
+      width: 100%;
+      height: 100%;
+      max-height: 75vh;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    /* Bloco do texto — fundo escuro */
+    .hero-text-block {
+      background: var(--dark);
+      padding: 40px 24px 56px;
+      text-align: center;
+    }
+    .hero-text-block .container {
+      max-width: 720px;
+    }
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+      animation: fadeInUp 0.6s ease-out;
+    }
+    .hero-subtitle-small {
+      font-size: 0.68rem;
       font-weight: 600;
-      animation: fadeInUp 0.7s ease-out;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 24px;
+      animation: fadeInUp 0.7s ease-out 0.05s backwards;
     }
     .hero-headline {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
       font-weight: 600;
-      line-height: 1.1;
+      line-height: 1.2;
       color: var(--white);
       margin-bottom: 20px;
-      letter-spacing: -0.5px;
       animation: fadeInUp 0.8s ease-out 0.1s backwards;
     }
     .hero-headline strong {
       color: var(--gold-light);
-      font-weight: 700;
       font-style: italic;
     }
     .hero-sub {
-      font-size: 1.05rem;
-      color: var(--gray);
-      line-height: 1.75;
-      margin-bottom: 36px;
-      max-width: 500px;
-      animation: fadeInUp 0.9s ease-out 0.2s backwards;
+      font-size: 1rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.9s ease-out 0.15s backwards;
     }
-    .hero-actions {
+    .hero-cta-wrap {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      align-items: flex-start;
-      animation: fadeInUp 1s ease-out 0.3s backwards;
+      align-items: center;
+      gap: 12px;
+      animation: fadeInUp 1s ease-out 0.2s backwards;
+    }
+    .btn-wpp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+      white-space: nowrap;
+    }
+    .btn-wpp:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.45);
     }
     .hero-trust {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--gray);
-      opacity: 0.8;
     }
 
-    /* Foto Hero integrada — sem fundo, alinhada ao rodapé */
-    .hero-photo-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      height: 100%;
-      min-height: 560px;
-      animation: fadeIn 1s ease-out 0.4s backwards;
+    /* ══════════════════════════════════════
+       SEÇÃO GENÉRICA
+    ══════════════════════════════════════ */
+    .section {
+      padding: 72px 0;
     }
-    .hero-photo-wrap::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 50%;
-      background: radial-gradient(ellipse 100% 60% at 50% 100%, rgba(200,168,75,0.15) 0%, transparent 70%);
-      filter: blur(50px);
-      z-index: 0;
-      pointer-events: none;
-    }
-    /* linha dourada vertical separando texto e foto */
-    .hero-photo-wrap::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 15%;
-      bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(200,168,75,0.3) 40%, rgba(200,168,75,0.1) 100%);
-      pointer-events: none;
-    }
-    .hero-photo-wrap img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: auto;
-      max-height: 680px;
-      object-fit: contain;
-      object-position: bottom center;
-      display: block;
-      filter: drop-shadow(0 0 40px rgba(200,168,75,0.08));
-    }
+    .section-dark  { background: var(--dark); }
+    .section-dark2 { background: var(--dark2); }
+    .section-black { background: var(--black); }
 
-    @media (max-width: 1024px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        align-items: center;
-        min-height: auto;
-      }
-      .hero-content { padding: 60px 0 20px; }
-      .hero-photo-wrap {
-        min-height: auto;
-        max-height: none;
-        overflow: visible;
-      }
-      .hero-photo-wrap img {
-        max-height: 480px;
-        object-position: top center;
-      }
-      .hero-photo-wrap::after { display: none; }
+    .section-header {
+      text-align: center;
+      margin-bottom: 52px;
     }
-    @media (max-width: 600px) {
-      .hero-photo-wrap img {
-        max-height: 380px;
-        object-position: top center;
-      }
-    }
-
-    /* =========================================================
-       TRANSIÇÃO HERO → ALERTA
-    ========================================================= */
-    .hero-alerta-transition {
-      background: var(--dark);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-alerta-transition::before,
-    .hero-alerta-transition::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-    }
-    .hero-alerta-transition::before { top: 0; }
-    .hero-alerta-transition::after  { bottom: 0; }
-    .hat-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 28px;
-      display: grid;
-      grid-template-columns: 1fr 280px 1fr;
-      align-items: center;
-      gap: 40px;
-      min-height: 420px;
-    }
-    .hat-left  { text-align: right; }
-    .hat-right { text-align: left; }
-    .hat-label {
-      font-family: var(--font-ui);
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 10px;
-    }
-    .hat-text {
-      font-family: var(--font-display);
-      font-size: clamp(1rem, 1.8vw, 1.3rem);
-      color: var(--gray);
-      line-height: 1.5;
-      font-style: italic;
-    }
-    .hat-photo {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-    }
-    .hat-photo::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 80px;
-      background: radial-gradient(ellipse, rgba(200,168,75,0.18), transparent 70%);
-      filter: blur(16px);
-      z-index: 0;
-    }
-    .hat-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 16px 48px rgba(200,168,75,0.1));
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    .hat-img.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    @media (max-width: 860px) {
-      .hat-inner {
-        grid-template-columns: 1fr;
-        padding: 48px 28px;
-        min-height: auto;
-        gap: 20px;
-        text-align: center;
-      }
-      .hat-left  { text-align: center; order: 2; }
-      .hat-photo { order: 1; width: 200px; margin: 0 auto; }
-      .hat-right { text-align: center; order: 3; }
-    }
-
-    /* =========================================================
-       ALERT
-    ========================================================= */
-    #alerta {
-      padding: var(--section-pad);
-      background: var(--dark);
-      position: relative;
-      overflow: hidden;
-    }
-    /* faixa vermelha sutil no topo da seção */
-    #alerta::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #c0392b 30%, #e74c3c 50%, #c0392b 70%, transparent);
-    }
-    .alert-headline {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 3.5vw, 3rem);
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
       font-weight: 700;
       color: var(--white);
-      margin-bottom: 20px;
-      max-width: 820px;
       line-height: 1.2;
     }
-    .alert-text {
-      color: var(--gray);
-      font-size: 1.05rem;
-      line-height: 1.8;
-      max-width: 700px;
-      margin-bottom: 56px;
-    }
-    .alert-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2px;
-      border: 1px solid rgba(192,57,43,0.3);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .alert-card {
-      background: rgba(139,32,32,0.1);
-      border: none;
-      border-right: 1px solid rgba(192,57,43,0.2);
-      padding: 40px 32px;
-      transition: all 0.35s ease;
-      position: relative;
-    }
-    .alert-card:last-child { border-right: none; }
-    .alert-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #c0392b, #e74c3c);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    .alert-card:hover {
-      background: rgba(139,32,32,0.2);
-      transform: translateY(-6px);
-    }
-    .alert-card:hover::before { transform: scaleX(1); }
-    .alert-card-icon {
-      font-size: 2rem;
-      color: #e74c3c;
-      margin-bottom: 20px;
-      display: block;
-    }
-    .alert-card h3 {
-      font-family: var(--font-ui);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--white);
-      line-height: 1.4;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-    .alert-card p {
-      font-size: 0.9rem;
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    /* =========================================================
-       PARA QUEM
-    ========================================================= */
-    #para-quem {
-      padding: var(--section-pad);
-      background: var(--dark-2);
-    }
-    .numbered-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .numbered-card {
-      background: var(--dark-3);
-      padding: 32px 28px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .numbered-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .numbered-card:hover { background: rgba(200,168,75,0.04); transform: translateY(-2px); }
-    .numbered-card:hover::before { opacity: 1; }
-    .card-num {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--gold-dim);
-      display: block;
-      margin-bottom: 16px;
-      line-height: 1;
-      transition: color 0.3s ease;
-    }
-    .numbered-card:hover .card-num { color: var(--gold); }
-    .numbered-card h3 {
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
+    .section-title em {
       color: var(--gold-light);
-      font-weight: 700;
-      margin-bottom: 12px;
-      line-height: 1.35;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .numbered-card p { color: var(--gray); font-size: 0.93rem; line-height: 1.75; }
-
-    /* =========================================================
-       DIREITOS — layout 2 colunas com foto
-    ========================================================= */
-    #direitos {
-      padding: var(--section-pad);
-      background: var(--dark-2);
-      position: relative;
-    }
-    #direitos::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0;
-      width: 50%;
-      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(200,168,75,0.04), transparent);
-      pointer-events: none;
-    }
-    .direitos-layout {
-      display: grid;
-      grid-template-columns: 1fr 480px;
-      gap: 80px;
-      align-items: center;
-    }
-    .rights-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-top: 32px;
-    }
-    .right-item {
-      background: var(--dark-3);
-      padding: 28px 24px;
-      transition: all 0.3s ease;
-    }
-    .right-item:hover { background: rgba(200,168,75,0.04); }
-    .right-icon {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: rgba(200,168,75,0.1);
-      border: 1.5px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-display);
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .right-item h3 {
-      font-family: var(--font-ui);
-      font-size: 0.8rem;
-      color: var(--gold-light);
-      font-weight: 700;
-      margin-bottom: 10px;
-      line-height: 1.35;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .right-item p { color: var(--gray); font-size: 0.88rem; line-height: 1.7; }
-
-    /* =========================================================
-       FOTOS COM TRANSIÇÃO CLIP-PATH
-    ========================================================= */
-
-    /* Container compartilhado para as duas fotos */
-    .photo-transition-wrap {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      background: transparent;
-    }
-
-    /* Foto Direitos — entra de cima para baixo */
-    .direitos-photo-wrap {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      height: 520px;
-    }
-    .direitos-photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      clip-path: inset(100% 0 0 0);
-      transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
-      filter: drop-shadow(0 8px 30px rgba(200,168,75,0.08));
-    }
-    .direitos-photo-wrap.in-view img {
-      clip-path: inset(0% 0 0 0);
-    }
-    /* borda dourada sutil */
-    .direitos-photo-wrap::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 12px;
-      border: 1px solid rgba(200,168,75,0.18);
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    @media (max-width: 1100px) {
-      .direitos-layout { grid-template-columns: 1fr; gap: 48px; }
-      .direitos-photo-wrap { height: 360px; }
-    }
-    @media (max-width: 600px) {
-      .direitos-photo-wrap { height: 280px; }
-    }
-
-    /* =========================================================
-       TRANSIÇÃO COM FOTO DO SOFÁ
-    ========================================================= */
-    .sofa-transition {
-      background: var(--dark);
-      overflow: hidden;
-      position: relative;
-    }
-    .sofa-transition::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-    }
-    .sofa-transition::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-    }
-    .sofa-transition-inner {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 24px;
-      gap: 40px;
-      min-height: 480px;
-    }
-    .sofa-left-text,
-    .sofa-right-text {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .sofa-left-text { text-align: right; }
-    .sofa-right-text { text-align: left; }
-    .sofa-left-text span,
-    .sofa-right-text span {
-      font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      color: var(--gray);
-      line-height: 1.4;
-      display: block;
-    }
-    .sofa-gold {
-      color: var(--gold-light) !important;
       font-style: italic;
-      font-weight: 600;
     }
-    .sofa-photo-wrap {
-      position: relative;
-      width: 340px;
-      flex-shrink: 0;
-    }
-    .sofa-photo-wrap::before {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      height: 60px;
-      background: radial-gradient(ellipse, rgba(200,168,75,0.2), transparent 70%);
-      filter: blur(20px);
-      z-index: 0;
-    }
-    .sofa-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 20px 60px rgba(200,168,75,0.12));
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
-    }
-    .sofa-img.in-view {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    @media (max-width: 900px) {
-      .sofa-transition-inner {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-        text-align: center;
-        padding: 60px 24px;
-        min-height: auto;
-        gap: 24px;
-      }
-      .sofa-left-text { text-align: center; order: 1; }
-      .sofa-photo-wrap { width: 260px; margin: 0 auto; order: 2; }
-      .sofa-right-text { text-align: center; order: 3; }
+    .section-desc {
+      font-size: 0.95rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 16px auto 0;
     }
 
-    /* =========================================================
-       ATUAÇÃO
-    ========================================================= */
-    #atuacao {
-      padding: var(--section-pad);
-      background: var(--dark-2);
+    /* ══════════════════════════════════════
+       ALERTA — 3 cards
+    ══════════════════════════════════════ */
+    .alert-strip {
+      background: linear-gradient(135deg, #1a0a0a, #1c0c0c);
+      border-top: 1px solid rgba(200,60,60,0.25);
+      border-bottom: 1px solid rgba(200,60,60,0.25);
+      padding: 60px 0;
     }
-    .atuacao-layout {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      align-items: start;
-      margin-top: 48px;
-    }
-    .atuacao-single {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 12px;
-    }
-
-    .help-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .help-card {
-      background: var(--dark-3);
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      padding: 22px 24px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .help-card::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--gold);
-      transform: scaleY(0);
-      transition: transform 0.3s ease;
-      transform-origin: bottom;
-    }
-    .help-card:hover { background: rgba(200,168,75,0.04); border-color: rgba(200,168,75,0.3); transform: translateX(4px); }
-    .help-card:hover::before { transform: scaleY(1); }
-    .help-card-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .help-card h3 {
-      font-family: var(--font-ui);
-      font-size: 0.82rem;
-      color: var(--white);
-      font-weight: 700;
-      margin-bottom: 8px;
-      line-height: 1.35;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .help-card p { color: var(--gray); font-size: 0.88rem; line-height: 1.7; }
-
-    @media (max-width: 1100px) {
-      .atuacao-layout { grid-template-columns: 1fr; gap: 48px; }
-      .atuacao-photo-wrap { height: 400px; order: -1; }
-    }
-
-    /* =========================================================
-       CASOS
-    ========================================================= */
-    #casos {
-      padding: var(--section-pad);
-      background: var(--dark-2);
-    }
-    .cases-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .case-card {
-      background: var(--dark-3);
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      padding: 32px 28px;
-      transition: all 0.35s ease;
-    }
-    .case-card:hover {
-      border-color: rgba(200,168,75,0.35);
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.3);
-    }
-    .case-tag {
-      display: inline-block;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 600;
-      background: rgba(200,168,75,0.1);
-      border: 1px solid var(--border);
-      padding: 5px 12px;
-      border-radius: 3px;
-      margin-bottom: 18px;
-    }
-    .case-card h3 {
-      font-family: var(--font-ui);
-      font-size: 0.82rem;
-      color: var(--white);
-      font-weight: 700;
-      margin-bottom: 12px;
-      line-height: 1.35;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    .case-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.75; }
-
-    /* =========================================================
-       CTA FINAL
-    ========================================================= */
-    #contato {
-      padding: var(--section-pad);
-      background: var(--dark);
-      position: relative;
-      overflow: hidden;
-    }
-    #contato::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(200,168,75,0.06), transparent);
-      pointer-events: none;
-    }
-    .cta-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    .cta-title {
-      font-family: var(--font-display);
+    .alert-headline {
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.7rem, 3.5vw, 2.4rem);
       font-weight: 700;
       color: var(--white);
       line-height: 1.25;
-      margin-bottom: 24px;
-      letter-spacing: -0.4px;
+      margin-bottom: 12px;
     }
-    .cta-text { color: var(--gray); font-size: 1rem; line-height: 1.8; margin-bottom: 40px; }
-    .cta-trust { font-size: 0.8rem; color: var(--gray); margin-top: 20px; letter-spacing: 0.06em; }
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-    footer {
-      padding: 40px 24px;
-      background: var(--black);
-      border-top: 1px solid var(--border);
-      text-align: center;
+    .alert-desc {
+      font-size: 0.92rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 44px;
     }
-    .footer-logo-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 8px;
+    .alert-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--gold-light);
-      margin-bottom: 4px;
+    .alert-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(200,60,60,0.2);
+      border-radius: 10px;
+      padding: 28px 24px;
+      transition: border-color 0.3s, transform 0.3s;
     }
-    .footer-oab { font-size: 0.8rem; color: var(--gray); margin-bottom: 20px; }
-    .footer-disclaimer {
-      font-size: 0.75rem;
-      color: var(--gray);
-      max-width: 640px;
-      margin: 0 auto;
-      line-height: 1.6;
-      opacity: 0.7;
+    .alert-card:hover {
+      border-color: rgba(200,60,60,0.5);
+      transform: translateY(-4px);
     }
-
-    /* =========================================================
-       WHATSAPP FAB
-    ========================================================= */
-    .whatsapp-fab {
-      position: fixed;
-      bottom: 32px;
-      right: 28px;
-      z-index: 999;
+    .alert-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(200,60,60,0.12);
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 50%;
-      box-shadow: 0 8px 32px rgba(37,211,102,0.4);
-      animation: fab-pulse 2.8s ease-in-out infinite;
-      transition: all 0.3s ease;
+      margin-bottom: 16px;
     }
-    .whatsapp-fab:hover {
-      transform: scale(1.12) translateY(-3px);
-      box-shadow: 0 12px 45px rgba(37,211,102,0.55);
-      animation: none;
-      background: #20ba5a;
+    .alert-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 10px;
     }
-    .whatsapp-fab svg { width: 32px; height: 32px; }
-    @media (max-width: 600px) {
-      .whatsapp-fab { width: 54px; height: 54px; bottom: 24px; right: 20px; }
-      .whatsapp-fab svg { width: 28px; height: 28px; }
+    .alert-card p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    @media (max-width: 700px) {
+      .alert-cards { grid-template-columns: 1fr; }
     }
 
-    /* =========================================================
-       RESPONSIVE GLOBAL
-    ========================================================= */
-    @media (max-width: 768px) {
-      :root { --section-pad: 80px 24px; }
-      .section-title { font-size: clamp(1.7rem, 3.5vw, 2.2rem); }
-      .hero-headline { font-size: clamp(1.8rem, 5vw, 3rem); }
-      .btn-primary { padding: 14px 28px; font-size: 0.88rem; }
-      .rights-grid { grid-template-columns: 1fr; }
+    /* ══════════════════════════════════════
+       PARA QUEM — 4 cards numerados
+    ══════════════════════════════════════ */
+    .num-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .num-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(200,168,75,0.15);
+      border-radius: 10px;
+      padding: 28px 24px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .num-card:hover {
+      border-color: rgba(200,168,75,0.4);
+      transform: translateY(-4px);
+    }
+    .num-badge {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold-dim);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .num-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .num-card p {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      .num-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══════════════════════════════════════
+       DIREITOS — lista com ícone quadrado
+       (estilo Giacaglia)
+    ══════════════════════════════════════ */
+    .rights-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .right-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(200,168,75,0.1);
+      transition: background 0.2s;
+    }
+    .right-item:last-child { border-bottom: none; }
+    .right-icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      background: rgba(200,168,75,0.1);
+      border: 1px solid rgba(200,168,75,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .right-item:hover .right-icon {
+      background: rgba(200,168,75,0.18);
+      border-color: rgba(200,168,75,0.4);
+    }
+    .right-body h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .right-body p {
+      font-size: 0.88rem;
+      color: var(--gray-light);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════
+       ATUAÇÃO — lista com ícone quadrado
+       (estilo Giacaglia)
+    ══════════════════════════════════════ */
+    .help-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .help-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(200,168,75,0.1);
+      transition: background 0.2s;
+    }
+    .help-item:last-child { border-bottom: none; }
+    .help-icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      background: rgba(200,168,75,0.1);
+      border: 1px solid rgba(200,168,75,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .help-item:hover .help-icon {
+      background: rgba(200,168,75,0.18);
+      border-color: rgba(200,168,75,0.4);
+    }
+    .help-body h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .help-body p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════
+       CASOS — cards brancos (estilo Giacaglia)
+    ══════════════════════════════════════ */
+    .cases-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .case-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,168,75,0.15);
+      border-radius: 12px;
+      padding: 28px 28px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .case-card:hover {
+      border-color: rgba(200,168,75,0.35);
+      transform: translateY(-3px);
+    }
+    .case-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+    .case-card p {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+    }
+    .case-disclaimer {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-align: center;
+      margin-top: 24px;
+      font-style: italic;
+    }
+
+    /* ══════════════════════════════════════
+       CTA FINAL
+    ══════════════════════════════════════ */
+    .cta-final {
+      background: linear-gradient(160deg, #111114, #0e0e11);
+      padding: 80px 0;
+      text-align: center;
+      border-top: 1px solid var(--gold-dim);
+    }
+    .cta-final .section-title {
+      margin-bottom: 16px;
+    }
+    .cta-final .section-desc {
+      margin-bottom: 36px;
+    }
+    .cta-final .btn-wpp {
+      font-size: 0.85rem;
+      padding: 18px 48px;
+    }
+    .cta-trust {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 14px;
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(200,168,75,0.12);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      height: 52px;
+      width: auto;
+      margin: 0 auto 16px;
+      display: block;
+      filter: drop-shadow(0 0 8px rgba(200,168,75,0.25));
+    }
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .footer-oab {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    .footer-disclaimer {
+      font-size: 0.72rem;
+      color: var(--gray);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto;
+      opacity: 0.7;
+    }
+
+    /* ══════════════════════════════════════
+       BOTÃO FLUTUANTE WHATSAPP
+    ══════════════════════════════════════ */
+    .wpp-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      width: 60px;
+      height: 60px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      animation: pulse-green 2.5s infinite;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .wpp-fab:hover {
+      background: var(--green-dark);
+      transform: scale(1.1);
+      animation: none;
+    }
+    .wpp-fab svg { display: block; }
+
+    @media (max-width: 480px) {
+      .wpp-fab { bottom: 20px; right: 20px; width: 54px; height: 54px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ===================== HEADER ===================== -->
+  <!-- ══ HEADER ══ -->
   <header id="site-header">
     <nav>
       <a href="#hero" class="nav-logo">
@@ -1136,7 +740,7 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="#alerta">Defesa</a></li>
+        <li><a href="#alerta">Alerta</a></li>
         <li><a href="#direitos">Direitos</a></li>
         <li><a href="#atuacao">Atuação</a></li>
         <li><a href="#casos">Casos</a></li>
@@ -1147,12 +751,20 @@
 
   <main>
 
-    <!-- ===================== HERO ===================== -->
+    <!-- ══ HERO ══ -->
     <section id="hero">
-      <div class="hero-inner">
-
-        <div class="hero-content">
-          <div class="hero-badge">Defesa Criminal Especializada</div>
+      <!-- Foto em cima, ocupando toda a largura -->
+      <div class="hero-photo-block">
+        <img
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/sYymTWBDaxyHfRlU.png"
+          alt="Ana Malheiros — Advogada Criminalista"
+        >
+      </div>
+      <!-- Texto embaixo -->
+      <div class="hero-text-block">
+        <div class="container">
+          <p class="hero-name">Ana Malheiros</p>
+          <p class="hero-subtitle-small">Advocacia Criminal — Falsa Acusação</p>
           <h1 class="hero-headline">
             Foi acusado injustamente?<br>
             <strong>Sua defesa precisa começar agora.</strong>
@@ -1160,204 +772,144 @@
           <p class="hero-sub">
             Acusações de crimes sexuais ou violência doméstica podem gerar prisão, afastamento do lar e danos irreversíveis à sua reputação — mesmo quando você é inocente.
           </p>
-          <div class="hero-actions">
-            <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="btn-primary">
+          <div class="hero-cta-wrap">
+            <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="btn-wpp">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Falar com Ana Malheiros agora
+              Falar com especialista agora
             </a>
             <span class="hero-trust">Atendimento reservado e sigiloso desde o primeiro contato.</span>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- TRANSIÇÃO HERO → ALERTA com foto integrada -->
-    <div class="hero-alerta-transition">
-      <div class="hat-inner">
-        <div class="hat-left">
-          <span class="hat-label">Advogada Criminalista</span>
-          <p class="hat-text">Especializada em defesa de acusações injustas, crimes sexuais e violência doméstica.</p>
-        </div>
-        <div class="hat-photo">
-          <img
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/sYymTWBDaxyHfRlU.png"
-            alt="Ana Malheiros"
-            loading="lazy"
-            class="hat-img"
-          >
-        </div>
-        <div class="hat-right">
-          <span class="hat-label">Atendimento reservado</span>
-          <p class="hat-text">Sigilo absoluto desde o primeiro contato. Estratégia antes que o problema cresça.</p>
-        </div>
-      </div>
-    </div>
+    <div class="divider"></div>
 
-    <!-- ===================== ALERT ===================== -->
-    <section id="alerta">
+    <!-- ══ ALERTA ══ -->
+    <section id="alerta" class="alert-strip">
       <div class="container">
         <span class="section-label">Atenção</span>
-        <h2 class="alert-headline">Não agir imediatamente pode ser o maior erro da sua defesa.</h2>
-        <p class="alert-text">
-          Cada depoimento, conversa, print, medida protetiva ou decisão precipitada pode ser usado contra você. Em casos sensíveis, a estratégia precisa começar antes do problema crescer.
-        </p>
+        <h2 class="alert-headline fade-up">Não agir imediatamente pode ser o maior erro da sua defesa.</h2>
+        <p class="alert-desc fade-up">Cada depoimento, conversa, print, medida protetiva ou decisão precipitada pode ser usado contra você. Em casos sensíveis, a estratégia precisa começar antes do problema crescer.</p>
         <div class="alert-cards">
-          <div class="alert-card">
-            <div class="alert-card-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <div class="alert-card fade-up">
+            <div class="alert-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
             <h3>Risco de prisão ou medidas urgentes</h3>
             <p>Prisão preventiva, flagrante ou medidas cautelares podem ser decretadas a qualquer momento sem defesa técnica.</p>
           </div>
-          <div class="alert-card">
-            <div class="alert-card-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="alert-card fade-up">
+            <div class="alert-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <h3>Exposição pública e danos à reputação</h3>
             <p>Acusações vazam para a mídia e redes sociais antes mesmo de qualquer julgamento, destruindo imagem e carreira.</p>
           </div>
-          <div class="alert-card">
-            <div class="alert-card-icon">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div class="alert-card fade-up">
+            <div class="alert-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </div>
             <h3>Afastamento do lar e restrições familiares</h3>
-            <p>Medidas protetivas podem impedir o contato com filhos e família, causando danos irreversíveis ao núcleo familiar.</p>
+            <p>Medidas protetivas podem afastar você de casa, dos filhos e da família sem direito a defesa prévia.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="divider-gold"></div>
+    <div class="divider"></div>
 
-    <!-- ===================== PARA QUEM ===================== -->
-    <section id="para-quem">
+    <!-- ══ PARA QUEM ══ -->
+    <section id="para-quem" class="section section-dark">
       <div class="container">
-        <span class="section-label">Para Quem</span>
-        <h2 class="section-title">Para quem é essa defesa</h2>
-        <p class="section-lead">Atuamos em casos sensíveis, complexos e urgentes, especialmente quando há risco à liberdade, à imagem e à vida familiar do acusado.</p>
-        <div class="numbered-grid">
-          <div class="numbered-card">
-            <span class="card-num">01</span>
-            <h3>Está sendo investigado ou foi acusado de crime que não cometeu</h3>
-            <p>Quando a versão apresentada não condiz com a realidade e você precisa agir com técnica para se proteger.</p>
+        <div class="section-header">
+          <span class="section-label">Para quem é essa defesa</span>
+          <h2 class="section-title fade-up">Você não é apenas mais um processo.<br><em>Você é uma pessoa com direitos.</em></h2>
+          <p class="section-desc fade-up">A defesa técnica especializada é para quem enfrenta acusações graves e precisa de estratégia desde o primeiro momento.</p>
+        </div>
+        <div class="num-grid">
+          <div class="num-card fade-up">
+            <div class="num-badge">01</div>
+            <h3>Homem acusado de violência doméstica</h3>
+            <p>Acusações sob a Lei Maria da Penha exigem defesa imediata para evitar medidas protetivas e prisão preventiva.</p>
           </div>
-          <div class="numbered-card">
-            <span class="card-num">02</span>
-            <h3>Foi denunciado com base apenas em palavra ou versão distorcida</h3>
-            <p>Situação comum em acusações de crimes sexuais, conflitos familiares e casos envolvendo Lei Maria da Penha.</p>
+          <div class="num-card fade-up">
+            <div class="num-badge">02</div>
+            <h3>Acusado de crime sexual ou assédio</h3>
+            <p>Crimes contra a dignidade sexual têm penas severas. A narrativa acusatória precisa ser desconstruída tecnicamente.</p>
           </div>
-          <div class="numbered-card">
-            <span class="card-num">03</span>
-            <h3>Corre risco de prisão, medida protetiva ou afastamento do lar</h3>
-            <p>Atuamos de forma urgente para avaliar medidas cabíveis, preservar direitos e evitar decisões desproporcionais.</p>
+          <div class="num-card fade-up">
+            <div class="num-badge">03</div>
+            <h3>Alvo de denúncia falsa ou vingança</h3>
+            <p>Acusações motivadas por conflitos pessoais, separações ou disputas precisam ser identificadas e combatidas.</p>
           </div>
-          <div class="numbered-card">
-            <span class="card-num">04</span>
-            <h3>Precisa de orientação antes de depor ou entregar provas</h3>
-            <p>Um depoimento mal conduzido pode comprometer toda a estratégia defensiva.</p>
+          <div class="num-card fade-up">
+            <div class="num-badge">04</div>
+            <h3>Investigado ou indiciado sem provas</h3>
+            <p>Inquéritos policiais e processos criminais sem base sólida podem ser arquivados com a defesa certa desde o início.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="divider-gold"></div>
+    <div class="divider"></div>
 
-    <!-- ===================== DIREITOS ===================== -->
-    <section id="direitos">
+    <!-- ══ DIREITOS ══ -->
+    <section id="direitos" class="section section-dark2">
       <div class="container">
-        <div class="direitos-layout">
+        <div class="section-header">
+          <span class="section-label">Seus direitos</span>
+          <h2 class="section-title fade-up">Mesmo acusado, você tem direitos.<br><em>E eles precisam ser usados com estratégia.</em></h2>
+        </div>
+        <div class="rights-list">
 
-          <div>
-            <span class="section-label">Direitos</span>
-            <h2 class="section-title">Mesmo acusado, você tem direitos. E eles precisam ser usados com estratégia.</h2>
-            <div class="rights-grid">
-              <div class="right-item">
-                <div class="right-icon">1</div>
-                <h3>Presunção de inocência</h3>
-                <p>Ninguém pode ser tratado como culpado antes de uma condenação definitiva.</p>
-              </div>
-              <div class="right-item">
-                <div class="right-icon">2</div>
-                <h3>Direito ao silêncio</h3>
-                <p>Você não é obrigado a produzir prova contra si mesmo. A orientação antes de qualquer depoimento é essencial.</p>
-              </div>
-              <div class="right-item">
-                <div class="right-icon">3</div>
-                <h3>Contraditório e ampla defesa</h3>
-                <p>Toda acusação pode e deve ser tecnicamente confrontada com provas, perícias e argumentos jurídicos.</p>
-              </div>
-              <div class="right-item">
-                <div class="right-icon">4</div>
-                <h3>Revisão de medidas protetivas</h3>
-                <p>Medidas podem ser analisadas e contestadas quando forem abusivas ou desproporcionais.</p>
-              </div>
-              <div class="right-item" style="grid-column: 1 / -1;">
-                <div class="right-icon">5</div>
-                <h3>Acesso integral às provas</h3>
-                <p>A defesa precisa conhecer os elementos da investigação para construir uma estratégia real.</p>
-              </div>
+          <div class="right-item fade-up">
+            <div class="right-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <div class="right-body">
+              <h3>Presunção de Inocência</h3>
+              <p>Você é inocente até que se prove o contrário. Nenhuma acusação, por mais grave que seja, substitui a necessidade de prova.</p>
             </div>
           </div>
 
-        </div>
-      </div>
-    </section>
+          <div class="right-item fade-up">
+            <div class="right-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div class="right-body">
+              <h3>Direito ao Silêncio</h3>
+              <p>Você não é obrigado a produzir prova contra si mesmo. Falar sem orientação jurídica pode ser o maior erro da sua defesa.</p>
+            </div>
+          </div>
 
-    <!-- ===================== TRANSIÇÃO COM FOTO DO SOFÁ ===================== -->
-    <div class="sofa-transition">
-      <div class="sofa-transition-inner">
-        <div class="sofa-left-text">
-          <span>Seus direitos existem.</span>
-          <span class="sofa-gold">A defesa precisa ativá-los.</span>
-        </div>
-        <div class="sofa-photo-wrap">
-          <img
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/tflzJljLuUbelqqh.png"
-            alt="Ana Malheiros"
-            loading="lazy"
-            class="sofa-img"
-          >
-        </div>
-        <div class="sofa-right-text">
-          <span>A estratégia começa</span>
-          <span class="sofa-gold">no primeiro contato.</span>
-        </div>
-      </div>
-    </div>
+          <div class="right-item fade-up">
+            <div class="right-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </div>
+            <div class="right-body">
+              <h3>Contraditório e Ampla Defesa</h3>
+              <p>Toda acusação deve ser contestada com provas, testemunhas e argumentos técnicos. A defesa tem o mesmo peso que a acusação.</p>
+            </div>
+          </div>
 
-    <!-- ===================== ATUAÇÃO ===================== -->
-    <section id="atuacao">
-      <div class="container">
-        <span class="section-label">Atuação</span>
-        <h2 class="section-title">Atuação técnica desde o primeiro momento. Não depois que o problema piorar.</h2>
-        <div class="atuacao-layout atuacao-single">
+          <div class="right-item fade-up">
+            <div class="right-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="right-body">
+              <h3>Medidas Protetivas Contestáveis</h3>
+              <p>Medidas protetivas podem ser revistas, modificadas ou cassadas quando não há fundamento legal ou fático suficiente.</p>
+            </div>
+          </div>
 
-          <div class="help-cards">
-            <div class="help-card">
-              <span class="help-card-label">Estratégia 1</span>
-              <h3>Diagnóstico reservado e estratégico</h3>
-              <p>Você relata o caso. Nós analisamos com técnica, sigilo e foco na proteção dos seus direitos.</p>
+          <div class="right-item fade-up">
+            <div class="right-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             </div>
-            <div class="help-card">
-              <span class="help-card-label">Estratégia 2</span>
-              <h3>Desconstrução da acusação</h3>
-              <p>Identificação de contradições, ausência de provas, fragilidades da narrativa e pontos que podem mudar o rumo do caso.</p>
-            </div>
-            <div class="help-card">
-              <span class="help-card-label">Estratégia 3</span>
-              <h3>Defesa ativa e imediata</h3>
-              <p>Atuação em inquérito, pedidos urgentes, habeas corpus, revogação de medidas protetivas e produção de contraprovas.</p>
-            </div>
-            <div class="help-card">
-              <span class="help-card-label">Estratégia 4</span>
-              <h3>Defesa em violência doméstica</h3>
-              <p>Atuação em casos envolvendo Lei Maria da Penha, medidas protetivas, afastamento do lar e acusações em contexto familiar.</p>
-            </div>
-            <div class="help-card">
-              <span class="help-card-label">Estratégia 5</span>
-              <h3>Proteção da imagem</h3>
-              <p>Estratégia para reduzir exposição indevida, preservar reputação e evitar danos pessoais e profissionais.</p>
+            <div class="right-body">
+              <h3>Acesso às Provas e ao Processo</h3>
+              <p>Você tem direito de conhecer todas as provas contra você, questionar laudos, contraditar testemunhas e produzir contraprovas.</p>
             </div>
           </div>
 
@@ -1365,77 +917,140 @@
       </div>
     </section>
 
-    <div class="divider-gold"></div>
+    <div class="divider"></div>
 
-    <!-- ===================== CASOS ===================== -->
-    <section id="casos">
+    <!-- ══ ATUAÇÃO ══ -->
+    <section id="atuacao" class="section section-dark">
       <div class="container">
-        <span class="section-label">Casos</span>
-        <h2 class="section-title">Exemplos de situações atendidas</h2>
-        <p class="section-lead">Os exemplos abaixo são ilustrativos e anonimizados. Cada caso depende de análise individual e não representa promessa de resultado.</p>
+        <div class="section-header">
+          <span class="section-label">Como atuamos</span>
+          <h2 class="section-title fade-up">Atuação técnica desde o primeiro momento.<br><em>Não depois que o problema piorar.</em></h2>
+        </div>
+        <div class="help-list">
+
+          <div class="help-item fade-up">
+            <div class="help-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div class="help-body">
+              <h3>Diagnóstico Imediato do Caso</h3>
+              <p>Análise técnica completa da acusação, das provas existentes e das vulnerabilidades da narrativa acusatória logo no primeiro atendimento.</p>
+            </div>
+          </div>
+
+          <div class="help-item fade-up">
+            <div class="help-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <div class="help-body">
+              <h3>Desconstrução da Narrativa Acusatória</h3>
+              <p>Identificação de contradições, ausência de provas e inconsistências no relato da acusação para enfraquecer a tese do Ministério Público.</p>
+            </div>
+          </div>
+
+          <div class="help-item fade-up">
+            <div class="help-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="help-body">
+              <h3>Defesa Ativa em Todas as Fases</h3>
+              <p>Habeas corpus, pedidos de arquivamento, recursos, audiências e julgamentos — presença técnica em cada etapa do processo.</p>
+            </div>
+          </div>
+
+          <div class="help-item fade-up">
+            <div class="help-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="help-body">
+              <h3>Defesa em Casos de Violência Doméstica</h3>
+              <p>Contestação de medidas protetivas, revisão de prisões preventivas e estratégia para casos enquadrados na Lei Maria da Penha.</p>
+            </div>
+          </div>
+
+          <div class="help-item fade-up">
+            <div class="help-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a84b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+            </div>
+            <div class="help-body">
+              <h3>Proteção da Imagem e Integridade</h3>
+              <p>Atuação para evitar exposição pública indevida, danos à reputação profissional e familiar durante o processo.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══ CASOS ══ -->
+    <section id="casos" class="section section-dark2">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Exemplos de casos atendidos</span>
+          <h2 class="section-title fade-up"><em>Exemplos de situações atendidas</em></h2>
+          <p class="section-desc fade-up">Todos os casos apresentados foram anonimizados para preservar a identidade e a privacidade dos clientes. Estas situações ilustram a atuação técnica em defesas reais.</p>
+        </div>
         <div class="cases-grid">
-          <div class="case-card">
-            <span class="case-tag">Investigação</span>
-            <h3>Investigação arquivada após análise técnica</h3>
-            <p>A defesa demonstrou inconsistências na narrativa acusatória e ausência de elementos mínimos para continuidade da investigação.</p>
+          <div class="case-card fade-up">
+            <h3>Acusação de Violência Doméstica — MG</h3>
+            <p>Cliente acusado com base em relato único, sem testemunhas ou laudos. A defesa identificou contradições temporais e espaciais no depoimento. Medida protetiva cassada e inquérito arquivado após apresentação de contraprovas e análise técnica da narrativa acusatória.</p>
           </div>
-          <div class="case-card">
-            <span class="case-tag">Medida Protetiva</span>
-            <h3>Medida protetiva reavaliada</h3>
-            <p>Após atuação técnica, foram apontadas contradições e ausência de risco atual, permitindo a reavaliação das restrições impostas.</p>
+          <div class="case-card fade-up">
+            <h3>Denúncia de Crime Sexual — MG</h3>
+            <p>Acusação motivada por conflito em separação litigiosa. A defesa demonstrou ausência de provas materiais e inconsistências no relato. Processo encerrado na fase de inquérito sem instauração de ação penal.</p>
           </div>
-          <div class="case-card">
-            <span class="case-tag">Prisão</span>
-            <h3>Pedido de prisão contestado</h3>
-            <p>A defesa atuou de forma urgente para demonstrar fragilidade da acusação, ausência de risco processual e necessidade de preservação da liberdade.</p>
+          <div class="case-card fade-up">
+            <h3>Investigação por Assédio — MG</h3>
+            <p>Cliente investigado no ambiente de trabalho com base em denúncia anônima. A defesa atuou preventivamente, apresentando provas documentais e testemunhais que afastaram a autoria antes da formalização de qualquer acusação.</p>
           </div>
         </div>
+        <p class="case-disclaimer fade-up">Os casos acima são ilustrativos e anonimizados. Resultados anteriores não garantem resultados futuros.</p>
       </div>
     </section>
 
-    <div class="divider-gold"></div>
+    <div class="divider"></div>
 
-    <!-- ===================== CTA FINAL ===================== -->
-    <section id="contato">
-      <div class="cta-inner">
-        <h2 class="cta-title">Você pode esperar e correr o risco de perder tudo. Ou agir agora e se defender da forma certa.</h2>
-        <p class="cta-text">A diferença entre essas duas decisões pode definir o rumo da sua vida, da sua liberdade e da sua reputação.</p>
-        <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="btn-primary">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Falar com especialista agora
+    <!-- ══ CTA FINAL ══ -->
+    <section class="cta-final">
+      <div class="container">
+        <span class="section-label">Fale agora</span>
+        <h2 class="section-title fade-up">Cada hora sem defesa técnica<br><em>é uma hora a favor da acusação.</em></h2>
+        <p class="section-desc fade-up">O atendimento é reservado, sigiloso e estratégico desde o primeiro contato. Não espere o problema crescer.</p>
+        <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="btn-wpp fade-up">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Ana Malheiros agora
         </a>
-        <p class="cta-trust">Atendimento jurídico reservado e estratégico.</p>
+        <p class="cta-trust fade-up">Atendimento jurídico reservado e estratégico.</p>
       </div>
     </section>
 
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- ══ FOOTER ══ -->
   <footer>
-    <div class="footer-logo-wrap">
-      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/iAEefeVETAiZRQPo.png" alt="Ana Malheiros Advocacia" style="height:64px;width:auto;filter:drop-shadow(0 0 8px rgba(200,168,75,0.4));margin-bottom:12px;">
-      <div class="footer-logo">Ana Malheiros</div>
-    </div>
-    <div class="footer-oab">Advogada Criminalista</div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/iAEefeVETAiZRQPo.png" alt="Logo Ana Malheiros" class="footer-logo">
+    <p class="footer-name">Ana Malheiros</p>
+    <p class="footer-oab">Advocacia Criminal — Falsa Acusação</p>
     <p class="footer-disclaimer">
-      As informações desta página são de caráter informativo e não substituem uma consulta jurídica individualizada. Resultados anteriores não garantem resultados futuros.
+      Este site tem caráter exclusivamente informativo e não constitui publicidade enganosa. Não há promessa de resultado. Todos os casos são analisados individualmente. Em conformidade com o Código de Ética da OAB.
     </p>
   </footer>
 
-  <!-- ===================== WHATSAPP FAB ===================== -->
-  <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="whatsapp-fab" title="Falar com Ana Malheiros no WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <!-- ══ BOTÃO FLUTUANTE WHATSAPP ══ -->
+  <a href="https://wa.me/31982629434" target="_blank" rel="noopener" class="wpp-fab" aria-label="Falar no WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
-  <!-- ===================== SCRIPTS ===================== -->
   <script>
-    // Header scroll effect
+    // Header scroll
     const header = document.getElementById('site-header');
     window.addEventListener('scroll', () => {
       header.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Hamburger menu
+    // Menu hamburger
     const hamburger = document.getElementById('hamburger');
     const navLinks  = document.getElementById('nav-links');
     hamburger.addEventListener('click', () => {
@@ -1443,72 +1058,32 @@
       navLinks.classList.toggle('open');
     });
 
-    // Smooth scroll com compensação do header fixo
+    // Scroll suave nos links do menu
     document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        const target = document.querySelector(targetId);
+      link.addEventListener('click', e => {
+        const id = link.getAttribute('href');
+        if (id === '#') return;
+        const target = document.querySelector(id);
         if (!target) return;
         e.preventDefault();
         hamburger.classList.remove('open');
         navLinks.classList.remove('open');
-        const headerHeight = header.offsetHeight;
-        const targetTop = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
-        window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        const offset = header.offsetHeight + 8;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
       });
     });
 
-    // Fade-in on scroll para cards
+    // Animações fade-up ao rolar
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          entry.target.classList.add('visible');
           observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
 
-    document.querySelectorAll(
-      '.alert-card, .numbered-card, .right-item, .help-card, .case-card'
-    ).forEach((el, i) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(28px)';
-      el.style.transition = `opacity 0.6s ease ${i * 0.08}s, transform 0.6s ease ${i * 0.08}s`;
-      observer.observe(el);
-    });
-
-    // Animação clip-path nas fotos: cima→baixo (direitos) e baixo→cima (atuação)
-    const photoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          photoObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.direitos-photo-wrap').forEach(el => {
-      photoObserver.observe(el);
-    });
-
-    // Animação fade-up para a foto do sofá
-    const sofaObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          sofaObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 });
-
-    const sofaImg = document.querySelector('.sofa-img');
-    if (sofaImg) sofaObserver.observe(sofaImg);
-
-    // Animação fade-up para a foto da transição hero→alerta
-    const hatImg = document.querySelector('.hat-img');
-    if (hatImg) sofaObserver.observe(hatImg);
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
 
 </body>
