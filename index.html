@@ -117,11 +117,11 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--gold);
-      color: var(--black);
+      background: #25D366;
+      color: #fff;
       font-weight: 700;
       font-size: 0.92rem;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       padding: 16px 36px;
       border-radius: 4px;
@@ -130,11 +130,12 @@
       border: none;
       cursor: pointer;
       font-family: var(--font-body);
+      box-shadow: 0 4px 20px rgba(37,211,102,0.25);
     }
     .btn-primary:hover {
-      background: var(--gold-light);
+      background: #20ba5a;
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(200,168,75,0.35);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.45);
     }
 
     /* =========================================================
@@ -213,12 +214,13 @@
     }
     .nav-links a:hover { color: var(--white); background: rgba(200,168,75,0.08); }
     .nav-cta {
-      background: var(--gold) !important;
-      color: var(--black) !important;
+      background: #25D366 !important;
+      color: #fff !important;
       font-weight: 700 !important;
       padding: 9px 20px !important;
+      box-shadow: 0 2px 12px rgba(37,211,102,0.25);
     }
-    .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+    .nav-cta:hover { background: #20ba5a !important; transform: translateY(-1px); box-shadow: 0 4px 18px rgba(37,211,102,0.4) !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); transition: all 0.3s ease; border-radius: 2px; }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
