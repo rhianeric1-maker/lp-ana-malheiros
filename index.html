@@ -231,14 +231,16 @@
     .hero-photo-block {
       position: relative;
       width: 100%;
-      background: var(--dark2);
+      background: var(--dark);
       line-height: 0;
+      overflow: hidden;
     }
+    /* Gradiente inferior para fundir com o texto */
     .hero-photo-block::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 40%;
+      height: 35%;
       background: linear-gradient(to bottom, transparent, var(--dark));
       z-index: 1;
       pointer-events: none;
@@ -246,16 +248,24 @@
     .hero-photo-block img {
       width: 100%;
       height: auto;
-      max-height: 80vh;
+      max-height: 92vh;
       object-fit: cover;
       object-position: top center;
       display: block;
       animation: fadeIn 0.8s ease-out;
     }
+    /* Desktop: limitar largura e centralizar */
     @media (min-width: 769px) {
+      .hero-photo-block {
+        display: flex;
+        justify-content: center;
+        background: var(--dark);
+      }
       .hero-photo-block img {
-        max-height: 70vh;
-        object-fit: cover;
+        max-width: 520px;
+        max-height: 85vh;
+        object-fit: contain;
+        object-position: top center;
       }
     }
 
@@ -899,7 +909,7 @@
       <!-- Foto em cima, ocupando toda a largura -->
       <div class="hero-photo-block">
         <img
-          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/sYymTWBDaxyHfRlU.png"
+          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/SVLYkzSlCsWAACKY.png"
           alt="Ana Malheiros — Advogada Criminalista"
         >
       </div>
@@ -1216,50 +1226,14 @@
 
         </div>
 
-        <!-- Mapa SVG do Brasil -->
+        <!-- Mapa do Brasil -->
         <div class="mapa-wrap fade-up">
-          <svg viewBox="0 0 600 580" class="mapa-svg" xmlns="http://www.w3.org/2000/svg">
-            <!-- Fundo do mapa simplificado -->
-            <g fill="#1e1e24" stroke="#c8a84b" stroke-width="0.8" opacity="0.7">
-              <!-- Contorno simplificado do Brasil -->
-              <path d="M180,60 L220,45 L270,40 L320,42 L370,50 L410,65 L440,85 L460,110 L470,140 L475,170 L478,200 L480,230 L482,260 L478,290 L470,320 L455,345 L440,365 L420,385 L400,400 L375,415 L350,425 L325,435 L300,445 L275,450 L250,448 L225,440 L200,428 L178,412 L160,392 L145,370 L135,345 L128,318 L125,290 L122,262 L120,234 L118,206 L120,178 L125,150 L133,124 L145,100 L160,78 Z"/>
-            </g>
-            <!-- Pins dourados nas cidades -->
-            <g fill="#c8a84b">
-              <!-- MG -->
-              <circle cx="310" cy="290" r="7"/>
-              <line x1="310" y1="283" x2="310" y2="265" stroke="#c8a84b" stroke-width="1.5"/>
-              <!-- SP -->
-              <circle cx="280" cy="330" r="7"/>
-              <line x1="280" y1="323" x2="280" y2="305" stroke="#c8a84b" stroke-width="1.5"/>
-              <!-- RJ -->
-              <circle cx="340" cy="335" r="6"/>
-              <!-- GO -->
-              <circle cx="268" cy="248" r="6"/>
-              <!-- BA -->
-              <circle cx="370" cy="240" r="6"/>
-              <!-- PE -->
-              <circle cx="420" cy="185" r="6"/>
-              <!-- CE -->
-              <circle cx="400" cy="155" r="6"/>
-              <!-- PA -->
-              <circle cx="270" cy="130" r="6"/>
-              <!-- MT -->
-              <circle cx="210" cy="230" r="6"/>
-              <!-- MS -->
-              <circle cx="230" cy="310" r="6"/>
-              <!-- PR -->
-              <circle cx="255" cy="365" r="6"/>
-              <!-- SC -->
-              <circle cx="260" cy="395" r="6"/>
-              <!-- RS -->
-              <circle cx="245" cy="430" r="6"/>
-              <!-- DF -->
-              <circle cx="295" cy="255" r="6"/>
-            </g>
-            <!-- Label principal -->
-            <text x="300" y="510" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="13" fill="#c8a84b" letter-spacing="3" font-weight="700">ATENDIMENTO NACIONAL</text>
-          </svg>
+          <img
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/sReFkYFhBXLSvffW.png"
+            alt="Mapa do Brasil — Atendimento Nacional"
+            style="width:100%; max-width:480px; height:auto; display:block; margin:0 auto; border-radius:12px;"
+          >
+          <p style="text-align:center; font-family:'Montserrat',sans-serif; font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-top:16px; font-weight:700;">Atendimento Nacional</p>
         </div>
 
         <div style="text-align:center; margin-top: 36px;">
