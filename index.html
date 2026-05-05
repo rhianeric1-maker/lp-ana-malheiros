@@ -406,16 +406,23 @@
         align-items: center;
         min-height: auto;
       }
-      .hero-content { padding: 60px 0 40px; }
+      .hero-content { padding: 60px 0 20px; }
       .hero-photo-wrap {
-        min-height: 380px;
-        max-height: 420px;
-        overflow: hidden;
+        min-height: auto;
+        max-height: none;
+        overflow: visible;
+      }
+      .hero-photo-wrap img {
+        max-height: 480px;
+        object-position: top center;
       }
       .hero-photo-wrap::after { display: none; }
     }
     @media (max-width: 600px) {
-      .hero-photo-wrap { min-height: 300px; max-height: 340px; }
+      .hero-photo-wrap img {
+        max-height: 380px;
+        object-position: top center;
+      }
     }
 
     /* =========================================================
@@ -673,57 +680,122 @@
     }
 
     /* =========================================================
-       ATUAÇÃO — layout 2 colunas com foto
+       TRANSIÇÃO COM FOTO DO SOFÁ
+    ========================================================= */
+    .sofa-transition {
+      background: var(--dark);
+      overflow: hidden;
+      position: relative;
+    }
+    .sofa-transition::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+    .sofa-transition::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+    .sofa-transition-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 40px;
+      min-height: 480px;
+    }
+    .sofa-left-text,
+    .sofa-right-text {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sofa-left-text { text-align: right; }
+    .sofa-right-text { text-align: left; }
+    .sofa-left-text span,
+    .sofa-right-text span {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: var(--gray);
+      line-height: 1.4;
+      display: block;
+    }
+    .sofa-gold {
+      color: var(--gold-light) !important;
+      font-style: italic;
+      font-weight: 600;
+    }
+    .sofa-photo-wrap {
+      position: relative;
+      width: 340px;
+      flex-shrink: 0;
+    }
+    .sofa-photo-wrap::before {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      height: 60px;
+      background: radial-gradient(ellipse, rgba(200,168,75,0.2), transparent 70%);
+      filter: blur(20px);
+      z-index: 0;
+    }
+    .sofa-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 20px 60px rgba(200,168,75,0.12));
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .sofa-img.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 900px) {
+      .sofa-transition-inner {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        text-align: center;
+        padding: 60px 24px;
+        min-height: auto;
+        gap: 24px;
+      }
+      .sofa-left-text { text-align: center; order: 1; }
+      .sofa-photo-wrap { width: 260px; margin: 0 auto; order: 2; }
+      .sofa-right-text { text-align: center; order: 3; }
+    }
+
+    /* =========================================================
+       ATUAÇÃO
     ========================================================= */
     #atuacao {
       padding: var(--section-pad);
-      background: var(--dark);
+      background: var(--dark-2);
     }
     .atuacao-layout {
       display: grid;
-      grid-template-columns: 480px 1fr;
-      gap: 80px;
-      align-items: center;
+      grid-template-columns: 1fr;
+      gap: 0;
+      align-items: start;
       margin-top: 48px;
     }
-
-    /* Foto Atuação — entra de baixo para cima */
-    .atuacao-photo-wrap {
-      position: relative;
-      overflow: hidden;
-      border-radius: 12px;
-      height: 520px;
-    }
-    .atuacao-photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      clip-path: inset(0 0 100% 0);
-      transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
-      filter: drop-shadow(0 8px 30px rgba(200,168,75,0.08));
-    }
-    .atuacao-photo-wrap.in-view img {
-      clip-path: inset(0% 0 0% 0);
-    }
-    /* borda dourada sutil */
-    .atuacao-photo-wrap::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 12px;
-      border: 1px solid rgba(200,168,75,0.18);
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    @media (max-width: 1100px) {
-      .atuacao-layout { grid-template-columns: 1fr; gap: 48px; }
-      .atuacao-photo-wrap { height: 360px; order: -1; }
-    }
-    @media (max-width: 600px) {
-      .atuacao-photo-wrap { height: 280px; }
+    .atuacao-single {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
     }
 
     .help-cards {
@@ -1104,34 +1176,38 @@
             </div>
           </div>
 
-          <div class="direitos-photo-wrap">
-            <img
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/tflzJljLuUbelqqh.png"
-              alt="Ana Malheiros - Consultoria Jurídica"
-              loading="lazy"
-            >
-          </div>
-
         </div>
       </div>
     </section>
 
-    <div class="divider-gold"></div>
+    <!-- ===================== TRANSIÇÃO COM FOTO DO SOFÁ ===================== -->
+    <div class="sofa-transition">
+      <div class="sofa-transition-inner">
+        <div class="sofa-left-text">
+          <span>Seus direitos existem.</span>
+          <span class="sofa-gold">A defesa precisa ativá-los.</span>
+        </div>
+        <div class="sofa-photo-wrap">
+          <img
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/tflzJljLuUbelqqh.png"
+            alt="Ana Malheiros"
+            loading="lazy"
+            class="sofa-img"
+          >
+        </div>
+        <div class="sofa-right-text">
+          <span>A estratégia começa</span>
+          <span class="sofa-gold">no primeiro contato.</span>
+        </div>
+      </div>
+    </div>
 
     <!-- ===================== ATUAÇÃO ===================== -->
     <section id="atuacao">
       <div class="container">
         <span class="section-label">Atuação</span>
         <h2 class="section-title">Atuação técnica desde o primeiro momento. Não depois que o problema piorar.</h2>
-        <div class="atuacao-layout">
-
-          <div class="atuacao-photo-wrap">
-            <img
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/XoCCDATDMqCLahNr.png"
-              alt="Ana Malheiros - Defesa Criminal"
-              loading="lazy"
-            >
-          </div>
+        <div class="atuacao-layout atuacao-single">
 
           <div class="help-cards">
             <div class="help-card">
@@ -1289,9 +1365,22 @@
       });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll('.direitos-photo-wrap, .atuacao-photo-wrap').forEach(el => {
+    document.querySelectorAll('.direitos-photo-wrap').forEach(el => {
       photoObserver.observe(el);
     });
+
+    // Animação fade-up para a foto do sofá
+    const sofaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          sofaObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    const sofaImg = document.querySelector('.sofa-img');
+    if (sofaImg) sofaObserver.observe(sofaImg);
   </script>
 
 </body>
