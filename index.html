@@ -220,63 +220,99 @@
     }
 
     /* ══════════════════════════════════════
-       HERO — foto em cima, texto embaixo
+       HERO
     ══════════════════════════════════════ */
     #hero {
       padding-top: 72px;
       background: var(--dark);
+      min-height: calc(100vh - 72px);
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Bloco da foto — ocupa toda a largura */
-    .hero-photo-block {
-      position: relative;
+    /* Wrapper interno: foto + texto lado a lado no desktop */
+    .hero-inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 40px 24px 56px;
+      gap: 48px;
       width: 100%;
-      background: var(--dark);
-      line-height: 0;
-      overflow: hidden;
     }
-    /* Gradiente inferior para fundir com o texto */
-    .hero-photo-block::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 35%;
-      background: linear-gradient(to bottom, transparent, var(--dark));
-      z-index: 1;
-      pointer-events: none;
+
+    /* Bloco do texto */
+    .hero-text-block {
+      flex: 1 1 0;
+      min-width: 0;
+      text-align: left;
+      max-width: 560px;
+    }
+    .hero-text-block .container {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    /* Bloco da foto */
+    .hero-photo-block {
+      flex: 0 0 auto;
+      width: 340px;
+      max-width: 38vw;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
     }
     .hero-photo-block img {
       width: 100%;
       height: auto;
-      max-height: 92vh;
-      object-fit: cover;
-      object-position: top center;
+      max-height: 72vh;
+      object-fit: contain;
+      object-position: bottom center;
       display: block;
       animation: fadeIn 0.8s ease-out;
-    }
-    /* Desktop: limitar largura e centralizar */
-    @media (min-width: 769px) {
-      .hero-photo-block {
-        display: flex;
-        justify-content: center;
-        background: var(--dark);
-      }
-      .hero-photo-block img {
-        max-width: 520px;
-        max-height: 85vh;
-        object-fit: contain;
-        object-position: top center;
-      }
+      filter: drop-shadow(0 8px 40px rgba(0,0,0,0.6));
     }
 
-    /* Bloco do texto — fundo escuro */
-    .hero-text-block {
-      background: var(--dark);
-      padding: 40px 24px 56px;
-      text-align: center;
+    /* Mobile: empilhado — foto menor em cima, texto embaixo */
+    @media (max-width: 768px) {
+      #hero {
+        min-height: auto;
+      }
+      .hero-inner {
+        flex-direction: column;
+        padding: 24px 20px 48px;
+        gap: 0;
+      }
+      .hero-photo-block {
+        width: 100%;
+        max-width: 100%;
+        order: 1;
+        max-height: 52vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+      }
+      .hero-photo-block img {
+        max-height: 52vh;
+        width: auto;
+        max-width: 100%;
+        object-position: top center;
+      }
+      .hero-text-block {
+        order: 2;
+        text-align: center;
+        max-width: 100%;
+        padding-top: 28px;
+      }
     }
-    .hero-text-block .container {
-      max-width: 720px;
+    @media (max-width: 480px) {
+      .hero-photo-block img {
+        max-height: 44vh;
+      }
     }
     .hero-name {
       font-family: 'Cormorant Garamond', serif;
@@ -906,16 +942,10 @@
 
     <!-- ══ HERO ══ -->
     <section id="hero">
-      <!-- Foto em cima, ocupando toda a largura -->
-      <div class="hero-photo-block">
-        <img
-          src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/SVLYkzSlCsWAACKY.png"
-          alt="Ana Malheiros — Advogada Criminalista"
-        >
-      </div>
-      <!-- Texto embaixo -->
-      <div class="hero-text-block">
-        <div class="container">
+      <div class="hero-inner">
+        <!-- Texto à esquerda -->
+        <div class="hero-text-block">
+          <div class="container">
           <p class="hero-name">Ana Malheiros</p>
           <p class="hero-subtitle-small">Advocacia Criminal — Falsa Acusação</p>
           <h1 class="hero-headline">
@@ -932,8 +962,18 @@
             </a>
             <span class="hero-trust">Atendimento reservado e sigiloso desde o primeiro contato.</span>
           </div>
+          </div><!-- /container -->
+        </div><!-- /hero-text-block -->
+
+        <!-- Foto à direita -->
+        <div class="hero-photo-block">
+          <img
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/SVLYkzSlCsWAACKY.png"
+            alt="Ana Malheiros — Advogada Criminalista"
+          >
         </div>
-      </div>
+
+      </div><!-- /hero-inner -->
     </section>
 
     <div class="divider"></div>
