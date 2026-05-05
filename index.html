@@ -273,10 +273,27 @@
       content: '';
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 28%;
-      background: linear-gradient(to bottom, transparent, var(--dark));
+      height: 40%;
+      background: linear-gradient(to bottom, transparent 0%, var(--dark) 100%);
       pointer-events: none;
       z-index: 1;
+    }
+    /* Nome e subtítulo sobrepostos na foto, na altura dos braços */
+    .hero-photo-name {
+      position: absolute;
+      bottom: 12%;
+      left: 0; right: 0;
+      text-align: center;
+      z-index: 2;
+      padding: 0 12px;
+    }
+    .hero-photo-name .hero-name {
+      margin-bottom: 6px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.9);
+    }
+    .hero-photo-name .hero-subtitle-small {
+      margin-bottom: 0;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.9);
     }
     .hero-photo-block img {
       width: 100%;
@@ -968,8 +985,6 @@
         <!-- Texto à esquerda -->
         <div class="hero-text-block">
           <div class="container">
-          <p class="hero-name">Ana Malheiros</p>
-          <p class="hero-subtitle-small">Advocacia Criminal — Falsa Acusação</p>
           <h1 class="hero-headline">
             Foi acusado injustamente?<br>
             <strong>Sua defesa precisa começar agora.</strong>
@@ -987,12 +1002,17 @@
           </div><!-- /container -->
         </div><!-- /hero-text-block -->
 
-        <!-- Foto à direita -->
+        <!-- Foto à direita com nome sobreposto -->
         <div class="hero-photo-block">
           <img
             src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/SVLYkzSlCsWAACKY.png"
             alt="Ana Malheiros — Advogada Criminalista"
           >
+          <!-- Nome e subtítulo sobrepostos na altura dos braços -->
+          <div class="hero-photo-name">
+            <p class="hero-name">Ana Malheiros</p>
+            <p class="hero-subtitle-small">Advocacia Criminal — Falsa Acusação</p>
+          </div>
         </div>
 
       </div><!-- /hero-inner -->
