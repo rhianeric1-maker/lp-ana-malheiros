@@ -139,26 +139,28 @@
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       background: #25D366;
       color: #fff;
       font-family: var(--font-ui);
-      font-weight: 800;
-      font-size: 0.88rem;
-      letter-spacing: 0.14em;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 18px 40px;
+      padding: 13px 28px;
       border-radius: 50px;
       text-decoration: none;
       transition: all 0.3s ease;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 24px rgba(37,211,102,0.3);
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.28);
     }
+    .btn-primary svg { flex-shrink: 0; }
     .btn-primary:hover {
       background: #20ba5a;
       transform: translateY(-2px);
-      box-shadow: 0 8px 36px rgba(37,211,102,0.5);
+      box-shadow: 0 8px 30px rgba(37,211,102,0.45);
     }
 
     /* =========================================================
@@ -438,6 +440,98 @@
         max-height: 380px;
         object-position: top center;
       }
+    }
+
+    /* =========================================================
+       TRANSIÇÃO HERO → ALERTA
+    ========================================================= */
+    .hero-alerta-transition {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-alerta-transition::before,
+    .hero-alerta-transition::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+    .hero-alerta-transition::before { top: 0; }
+    .hero-alerta-transition::after  { bottom: 0; }
+    .hat-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 28px;
+      display: grid;
+      grid-template-columns: 1fr 280px 1fr;
+      align-items: center;
+      gap: 40px;
+      min-height: 420px;
+    }
+    .hat-left  { text-align: right; }
+    .hat-right { text-align: left; }
+    .hat-label {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .hat-text {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.8vw, 1.3rem);
+      color: var(--gray);
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .hat-photo {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .hat-photo::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 80px;
+      background: radial-gradient(ellipse, rgba(200,168,75,0.18), transparent 70%);
+      filter: blur(16px);
+      z-index: 0;
+    }
+    .hat-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 16px 48px rgba(200,168,75,0.1));
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .hat-img.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 860px) {
+      .hat-inner {
+        grid-template-columns: 1fr;
+        padding: 48px 28px;
+        min-height: auto;
+        gap: 20px;
+        text-align: center;
+      }
+      .hat-left  { text-align: center; order: 2; }
+      .hat-photo { order: 1; width: 200px; margin: 0 auto; }
+      .hat-right { text-align: center; order: 3; }
     }
 
     /* =========================================================
@@ -1075,18 +1169,30 @@
           </div>
         </div>
 
-        <div class="hero-photo-wrap">
-          <img
-            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/sYymTWBDaxyHfRlU.png"
-            alt="Ana Malheiros - Advogada Especializada em Falsa Acusação"
-            loading="lazy"
-          >
-        </div>
-
       </div>
     </section>
 
-    <div class="divider-gold"></div>
+    <!-- TRANSIÇÃO HERO → ALERTA com foto integrada -->
+    <div class="hero-alerta-transition">
+      <div class="hat-inner">
+        <div class="hat-left">
+          <span class="hat-label">Advogada Criminalista</span>
+          <p class="hat-text">Especializada em defesa de acusações injustas, crimes sexuais e violência doméstica.</p>
+        </div>
+        <div class="hat-photo">
+          <img
+            src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663399684510/sYymTWBDaxyHfRlU.png"
+            alt="Ana Malheiros"
+            loading="lazy"
+            class="hat-img"
+          >
+        </div>
+        <div class="hat-right">
+          <span class="hat-label">Atendimento reservado</span>
+          <p class="hat-text">Sigilo absoluto desde o primeiro contato. Estratégia antes que o problema cresça.</p>
+        </div>
+      </div>
+    </div>
 
     <!-- ===================== ALERT ===================== -->
     <section id="alerta">
@@ -1399,6 +1505,10 @@
 
     const sofaImg = document.querySelector('.sofa-img');
     if (sofaImg) sofaObserver.observe(sofaImg);
+
+    // Animação fade-up para a foto da transição hero→alerta
+    const hatImg = document.querySelector('.hat-img');
+    if (hatImg) sofaObserver.observe(hatImg);
   </script>
 
 </body>
